@@ -14,18 +14,28 @@ progress {
 progress::-webkit-progress-value {
   background-color: white !important;
   width: 100%;
-  margin: 5px;
-  height: 30px;
+  height: 40px;
 }
 progress::-moz-progress-bar {
   background-color: white !important;
   width: 100%;
-  margin: 5px;
-  height: 30px;
+  height: 40px;
 }
 progress {
   color: white;
   width: 100%;
-  margin: 5px;
-  height: 30px;
+  height: 40px;
+}
+
+.PollResult {
+  display: grid;
+  grid-template-columns: 100px auto;
+}
+
+.PollResult > label {
+  text-align: center;
+  line-height: 40px;
+  overflow: overlay;
+  max-height: 40px;
+  font-family: arial;
 }
