@@ -35,7 +35,7 @@ const PollCard = ({ pollId, pollInfo }) => {
       <Card className={classes.Card}>
         <CardContent className={classes.CardContent}>
           <div clasName="PollTitle">
-            <Typography variant="h3">{pollInfo.title}</Typography>
+            <Typography variant="h3">{pollInfo.title} { pollInfo.voted }</Typography>
           </div>
           { !voted ? <PollForm pollId={pollId} pollInfo={pollInfo} onVote={onVote} /> : <PollResults />}
         </CardContent>
