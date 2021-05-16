@@ -4,7 +4,11 @@ import PollPage from './Components/Poll/PollPage'
 function App() {
   return (
     <Router>
-      <div className="App">
+      <div className="App" style={{
+        display: "flex",
+        justifyContent: "center",
+        paddingTop: "50px"
+      }}>
         <Switch>
           <Route exact path="/">
             <p>Hello There</p>
