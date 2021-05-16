@@ -24,6 +24,8 @@ class Poll extends React.Component {
     const data = await response.json()
 
     this.setState({pollInfo: data.Response})
+
+    console.log(this.state.pollInfo)
   }
   render() {
     return (
