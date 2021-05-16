@@ -11,6 +11,11 @@ class PollResults extends React.Component {
       optionCCount: 0,
       optionDCount: 0,
       optionECount: 0,
+      optionATitle: "",
+      optionBTitle: "",
+      optionCTitle: "",
+      optionDTitle: "",
+      optionETitle: "",
       All: 0,
     }
   }
@@ -24,6 +29,8 @@ class PollResults extends React.Component {
     All += Response.optionDCount != null ? Response.optionDCount : 0
     All += Response.optionDCount != null ? Response.optionDCount : 0
 
+
+
     this.setState(
       {
         optionACount: Response.optionACount,
@@ -31,6 +38,11 @@ class PollResults extends React.Component {
         optionCCount: Response.optionCCount,
         optionDCount: Response.optionDCount,
         optionECount: Response.optionECount,
+        optionATitle: Response.optionATitle,
+        optionBTitle: Response.optionBTitle,
+        optionCTitle: Response.optionCTitle,
+        optionDTitle: Response.optionDTitle,
+        optionETitle: Response.optionETitle,
         All
       }
     )
@@ -58,11 +70,11 @@ class PollResults extends React.Component {
   render() {
     return (
       <div className="PollResults">
-        { this.state.optionACount != null ? <PollResult value={this.state.optionACount} max={this.state.All} label="Hello There"/> : <></>}
-        { this.state.optionBCount != null ? <PollResult value={this.state.optionBCount} max={this.state.All} label="Hello There"/> : <></>}
-        { this.state.optionCCount != null ? <PollResult value={this.state.optionCCount} max={this.state.All} label="Hello There"/> : <></>}
-        { this.state.optionDCount != null ? <PollResult value={this.state.optionDCount} max={this.state.All} label="Hello There"/> : <></>}
-        { this.state.optionECount != null ? <PollResult value={this.state.optionECount} max={this.state.All} label="Hello There"/> : <></>}
+        { this.state.optionACount != null ? <PollResult value={this.state.optionACount} max={this.state.All} label={this.state.optionATitle}/> : <></>}
+        { this.state.optionBCount != null ? <PollResult value={this.state.optionBCount} max={this.state.All} label={this.state.optionBTitle}/> : <></>}
+        { this.state.optionCCount != null ? <PollResult value={this.state.optionCCount} max={this.state.All} label={this.state.optionCTitle}/> : <></>}
+        { this.state.optionDCount != null ? <PollResult value={this.state.optionDCount} max={this.state.All} label={this.state.optionDTitle}/> : <></>}
+        { this.state.optionECount != null ? <PollResult value={this.state.optionECount} max={this.state.All} label={this.state.optionETitle}/> : <></>}
       </div>
     )
   }
