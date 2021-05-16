@@ -23,7 +23,8 @@ const PollForm = ({ pollInfo }) => {
   const useStyles = makeStyles({
     Form: {
       display: "flex",
-      flexDirection: "column"
+      flexDirection: "column",
+      height: "calc(100% - 32px)"
     },
     Grow: {
       flexGrow: 1
