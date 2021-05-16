@@ -18,6 +18,30 @@ def Start():
 
     return Database, Cursor
 
+def Vote(option):
+    if option == "A":
+        Count = Read(Database=Database, Cursor=Cursor, table="Polls", id=pollId, column="optionACount")[0][0]
+        print(Count)
+        return {"Response": "Voted"}
+    elif option == "B":
+        Count = Read(Database=Database, Cursor=Cursor, table="Polls", id=pollId, column="optionBCount")[0][0]
+        print(Count)
+        return {"Response": "Voted"}
+    elif option == "C":
+        Count = Read(Database=Database, Cursor=Cursor, table="Polls", id=pollId, column="optionCCount")[0][0]
+        print(Count)
+        return {"Response": "Voted"}
+    elif option == "D":
+        Count = Read(Database=Database, Cursor=Cursor, table="Polls", id=pollId, column="optionDCount")[0][0]
+        print(Count)
+        return {"Response": "Voted"}
+    elif option == "E":
+        Count = Read(Database=Database, Cursor=Cursor, table="Polls", id=pollId, column="optionECount")[0][0]
+        print(Count)
+        return {"Response": "Voted"}
+    else:
+        return {"Error": "invalid option"}
+
 @App.route('/', defaults={'path': ''})
 @App.route('/<path:path>')
 def index(path):
@@ -56,6 +80,22 @@ def Api(key, option):
             return {"Error": "This action needs a POST request to work"}
         elif option == "vote":
             if request.method == "POST":
+                pollId = int(request.json["pollId"])
+                option = request.json["option"]
+
+                if option == "A":
+                    return {"Response": "Voted"}
+                elif option == "B":
+                    return {"Response": "Voted"}
+                elif option == "C":
+                    return {"Response": "Voted"}
+                elif option == "D":
+                    return {"Response": "Voted"}
+                elif option == "E":
+                    return {"Response": "Voted"}
+                else:
+                    return {"Error": "invalid option"}
+
                 return {"Response": "200 - ok"}
             return {"Error": "This action needs a POST request to work"}
     return {"Error": "Wrong key!"}
