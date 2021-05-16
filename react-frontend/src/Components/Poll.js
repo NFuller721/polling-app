@@ -25,11 +25,11 @@ class Poll extends React.Component {
 
     this.setState({pollInfo: data.Response})
 
-    console.log(this.state.pollInfo.optionACount == 0)
-    console.log(this.state.pollInfo.optionBCount == 0)
-    console.log(this.state.pollInfo.optionCCount == 0)
-    console.log(this.state.pollInfo.optionDCount == 0)
-    console.log(this.state.pollInfo.optionECount == 0)
+    console.log(typeof this.state.pollInfo.optionACount == 'number')
+    console.log(typeof this.state.pollInfo.optionACount == 'number')
+    console.log(typeof this.state.pollInfo.optionACount == 'number')
+    console.log(typeof this.state.pollInfo.optionACount == 'number')
+    console.log(typeof this.state.pollInfo.optionACount == 'number')
   }
   render() {
     return (
