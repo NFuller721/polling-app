@@ -30,10 +30,27 @@ const PollCard = ({ pollId, pollInfo }) => {
     setVoted(!voted)
   }
 
+  const onLoad = async () => {
+    const body = JSON.stringify(
+      {
+        pollId: this.props.match.params.pollId
+      }
+    )
+    const response = await fetch("/Api/467586970086574653/read", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body
+    })
+    const data = await response.json()
+
+    setVoted(data.Response.voted)
+  }
 
 
   return (
-    <ThemeProviderComponent>
+    <ThemeProviderComponent onLoad={onLoad()}>
       <Card className={classes.Card}>
         <CardContent className={classes.CardContent}>
           <div clasName="PollTitle">
