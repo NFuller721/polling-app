@@ -25,7 +25,7 @@ const PollCard = ({ pollInfo }) => {
   return (
     <ThemeProviderComponent>
       <Card className={classes.Card}>
-        <CardContent>
+        <CardContent className={classes.CardContent}>
           <div clasName="PollTitle">
             <Typography variant="h3">{pollInfo.title}</Typography>
           </div>
