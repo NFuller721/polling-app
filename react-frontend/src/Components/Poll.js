@@ -34,7 +34,7 @@ class Poll extends React.Component {
   }
 
   checkHandler(event) {
-    console.log(event)
+    this.setState({pollOptions: {[event.target.name]: [event.target.checked]}})
   }
 
   render() {
