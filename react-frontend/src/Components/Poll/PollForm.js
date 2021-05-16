@@ -7,7 +7,7 @@ import {
   useMediaQuery
 } from '@material-ui/core'
 
-const PollForm = ({ pollInfo }) => {
+const PollForm = ({ pollInfo, className }) => {
   const [pollOptions, setPollOptions] = useState(
     {
       optionA: false,
@@ -27,7 +27,7 @@ const PollForm = ({ pollInfo }) => {
   }
 
   return (
-    <form onSubmit={submitHandler} className="Poll">
+    <form className={className} onSubmit={submitHandler} className="Poll">
       { pollInfo.optionACount == null ? <div></div> : (
         <FormControlLabel
           control={<Checkbox name="optionA" onChange={checkHandler} checked={pollOptions.optionA} />}
