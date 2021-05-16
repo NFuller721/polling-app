@@ -24,7 +24,7 @@ const PollCard = ({ pollId, pollInfo }) => {
   })
   const classes = useStyles()
 
-  const [voted, setVoted] = useState(false)
+  const [voted, setVoted] = useState(pollInfo.voted)
 
   const onVote = () => {
     setVoted(!voted)

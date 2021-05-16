@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, session
 from MySQLPackage import *
 
 App = Flask(__name__)
@@ -60,6 +60,8 @@ def index(path):
 
 @App.route('/Api/<key>/<option>', methods=["GET", "POST"])
 def Api(key, option):
+    if session["voted"] == True:
+        session["voted"] = False
     if key == "467586970086574653":
         if option == "read":
             if request.method == "POST":
@@ -81,6 +83,7 @@ def Api(key, option):
                     "optionDTitle": Poll[9],
                     "optionECount": Poll[10],
                     "optionETitle": Poll[11],
+                    "voted": session["voted"]
                 }
 
                 return {"Response": Response}
@@ -93,6 +96,8 @@ def Api(key, option):
             if request.method == "POST":
                 pollId = int(request.json["pollId"])
                 option = request.json["option"]
+
+                session["voted"] = True
 
                 return Vote(pollId, option)
             return {"Error": "This action needs a POST request to work"}
