@@ -41,33 +41,33 @@ class Poll extends React.Component {
       <form>
         { this.state.pollInfo.optionACount == null ? <div></div> : (
           <FormControlLabel
-            contol={<Checkbox name="optionA" onChange={this.checkHandler} checked={this.state.pollOptions.optionA} />}
-            label={this.state.pollInfo.optionATitle}>
-          </FormControlLabel>
+            control={<Checkbox name="optionA" onChange={this.checkHandler} checked={this.state.pollOptions.optionA} />}
+            label={this.state.pollInfo.optionATitle}
+          />
         )}
         { this.state.pollInfo.optionBCount == null ? <div></div> : (
           <FormControlLabel
-            contol={<Checkbox name="optionB" onChange={this.checkHandler} checked={this.state.pollOptions.optionB} />}
-            label={this.state.pollInfo.optionBTitle}>
-          </FormControlLabel>
+            control={<Checkbox name="optionB" onChange={this.checkHandler} checked={this.state.pollOptions.optionB} />}
+            label={this.state.pollInfo.optionBTitle}
+          />
         )}
         { this.state.pollInfo.optionCCount == null ? <div></div> : (
           <FormControlLabel
-            contol={<Checkbox name="optionC" onChange={this.checkHandler} checked={this.state.pollOptions.optionC} />}
-            label={this.state.pollInfo.optionCTitle}>
-          </FormControlLabel>
+            control={<Checkbox name="optionC" onChange={this.checkHandler} checked={this.state.pollOptions.optionC} />}
+            label={this.state.pollInfo.optionCTitle}
+          />
         )}
         { this.state.pollInfo.optionDCount == null ? <div></div> : (
           <FormControlLabel
-            contol={<Checkbox name="optionD" onChange={this.checkHandler} checked={this.state.pollOptions.optionD} />}
-            label={this.state.pollInfo.optionDTitle}>
-          </FormControlLabel>
+            control={<Checkbox name="optionD" onChange={this.checkHandler} checked={this.state.pollOptions.optionD} />}
+            label={this.state.pollInfo.optionDTitle}
+          />
         )}
         { this.state.pollInfo.optionECount == null ? <div></div> : (
           <FormControlLabel
-            contol={<Checkbox name="optionE" onChange={this.checkHandler} checked={this.state.pollOptions.optionE} />}
-            label={this.state.pollInfo.optionETitle}>
-          </FormControlLabel>
+            control={<Checkbox name="optionE" onChange={this.checkHandler} checked={this.state.pollOptions.optionE} />}
+            label={this.state.pollInfo.optionETitle}
+          />
         )}
       </form>
     )
