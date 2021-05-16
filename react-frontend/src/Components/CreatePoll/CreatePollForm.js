@@ -1,7 +1,9 @@
+import { Button } from '@material-ui/core'
+
 const CreatePollForm = () => {
   return (
     <div>
-      <p>Under Construction...</p>
+      <Button variant="contained">Create Poll</Button>
     </div>
   )
 }
