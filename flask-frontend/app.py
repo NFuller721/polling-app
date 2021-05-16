@@ -28,7 +28,7 @@ def Api(key, option):
     if key == "467586970086574653":
         if option == "read":
             if request.method == "POST":
-                console.log(request.form)
+                print(request.form)
                 pollId = request.form["pollId"]
 
                 Database, Cursor = Start()
