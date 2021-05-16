@@ -34,7 +34,6 @@ class Poll extends React.Component {
   }
 
   async componentDidMount() {
-    this.classes = this.useStyles()
     const body = JSON.stringify(
       {
         pollId: this.props.match.params.pollId
@@ -63,7 +62,7 @@ class Poll extends React.Component {
   render() {
     return (
       <ThemeProviderComponent>
-        <Card className={this.classes.Card}>
+        <Card className={this.useStyles().Card}>
           <CardContent>
             <div clasName="PollTitle">
               <Typography>{this.state.pollInfo.title}</Typography>
