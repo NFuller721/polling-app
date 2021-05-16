@@ -44,7 +44,7 @@ const PollCard = ({ pollId, pollInfo }) => {
         </CardContent>
       </Card>
 
-      <Button onClick={() => { console.log(pollInfo.voted)}}></Button>
+      <Button onClick={() => setVoted(pollInfo.voted)}></Button>
     </ThemeProviderComponent>
   )
 }
