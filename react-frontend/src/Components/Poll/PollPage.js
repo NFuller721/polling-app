@@ -27,6 +27,8 @@ class PollPage extends React.Component {
     const data = await response.json()
 
     this.setState({pollInfo: data.Response})
+
+    console.log(data.Response.voted)
   }
 
   setPollInfo = (info) => {

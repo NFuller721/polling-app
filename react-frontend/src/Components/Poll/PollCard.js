@@ -26,10 +26,6 @@ const PollCard = ({ pollId, pollInfo }) => {
   })
   const classes = useStyles()
 
-  pollInfo.voted.then((result) => {
-    setVoted(pollInfo.voted)
-  })
-
   const onVote = () => {
     setVoted(!voted)
   }
@@ -46,8 +42,6 @@ const PollCard = ({ pollId, pollInfo }) => {
           { !voted ? <PollForm pollId={pollId} pollInfo={pollInfo} onVote={onVote} /> : <PollResults />}
         </CardContent>
       </Card>
-
-      <Button onClick={() => setVoted(pollInfo.voted)}></Button>
     </ThemeProviderComponent>
   )
 }
