@@ -8,6 +8,7 @@ import {
 
 import ThemeProviderComponent from '../ThemeProviderComponent'
 import PollForm from './PollForm'
+import PollResults from './PollResults'
 
 const PollCard = ({ pollId, pollInfo }) => {
 
@@ -36,7 +37,7 @@ const PollCard = ({ pollId, pollInfo }) => {
           <div clasName="PollTitle">
             <Typography variant="h3">{pollInfo.title}</Typography>
           </div>
-          { !voted ? <PollForm pollId={pollId} pollInfo={pollInfo} onVote={onVote}/> : <p>Voted</p>}
+          { !voted ? <PollForm pollId={pollId} pollInfo={pollInfo} onVote={onVote} /> : <PollResults />}
         </CardContent>
       </Card>
     </ThemeProviderComponent>
