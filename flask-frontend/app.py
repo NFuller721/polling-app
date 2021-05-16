@@ -21,23 +21,23 @@ def Start():
 def Vote(pollId, option):
     Database, Cursor = Start()
     if option == "A":
-        Count = Read(Database=Database, Cursor=Cursor, table="Polls", id=pollId, column="optionACount")[0][0]
+        Count = Read(Database=Database, Cursor=Cursor, table="Polls", id=pollId, columns="optionACount")[0][0]
         print(Count)
         return {"Response": "Voted"}
     elif option == "B":
-        Count = Read(Database=Database, Cursor=Cursor, table="Polls", id=pollId, column="optionBCount")[0][0]
+        Count = Read(Database=Database, Cursor=Cursor, table="Polls", id=pollId, columns="optionBCount")[0][0]
         print(Count)
         return {"Response": "Voted"}
     elif option == "C":
-        Count = Read(Database=Database, Cursor=Cursor, table="Polls", id=pollId, column="optionCCount")[0][0]
+        Count = Read(Database=Database, Cursor=Cursor, table="Polls", id=pollId, columns="optionCCount")[0][0]
         print(Count)
         return {"Response": "Voted"}
     elif option == "D":
-        Count = Read(Database=Database, Cursor=Cursor, table="Polls", id=pollId, column="optionDCount")[0][0]
+        Count = Read(Database=Database, Cursor=Cursor, table="Polls", id=pollId, columns="optionDCount")[0][0]
         print(Count)
         return {"Response": "Voted"}
     elif option == "E":
-        Count = Read(Database=Database, Cursor=Cursor, table="Polls", id=pollId, column="optionECount")[0][0]
+        Count = Read(Database=Database, Cursor=Cursor, table="Polls", id=pollId, columns="optionECount")[0][0]
         print(Count)
         return {"Response": "Voted"}
     else:
