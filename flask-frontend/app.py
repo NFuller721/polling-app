@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, session
 from MySQLPackage import *
 
 App = Flask(__name__)
+App.secret_key = 'secretKey'
 
 Connection = Connection(
     host="127.0.0.1",
@@ -9,7 +10,6 @@ Connection = Connection(
     password="Satchel21",
     databaseName="Polls"
 )
-
 def Start():
     Connection.run()
 
