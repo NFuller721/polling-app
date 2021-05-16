@@ -24,7 +24,7 @@ def index(path):
     return render_template('index.html')
 
 @App.route('/Api/<key>/<option>', methods=["GET", "POST"])
-def Api(key, pollId):
+def Api(key, option):
     if key == "467586970086574653":
         if option == "read":
             if request.method == "POST":
