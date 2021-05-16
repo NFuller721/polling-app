@@ -37,7 +37,7 @@ const PollForm = ({ pollInfo }) => {
   }
 
   return (
-    <form className={classes.Form} onSubmit={submitHandler} className="Poll">
+    <form className="Hello There" onSubmit={submitHandler} className="Poll">
       { pollInfo.optionACount == null ? <div></div> : (
         <FormControlLabel
           control={<Checkbox name="optionA" onChange={checkHandler} checked={pollOptions.optionA} />}
