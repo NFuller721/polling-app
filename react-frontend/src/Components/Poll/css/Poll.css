@@ -35,8 +35,8 @@ progress {
 .PollResult > p {
   position: absolute;
   text-align: center;
-  line-height: 40px;
+  line-height: 20px;
   overflow: overlay;
-  max-height: 40px;
+  background-color: #42424242;
   font-family: arial;
 }
