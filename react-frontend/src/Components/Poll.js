@@ -1,25 +1,32 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { withRouter } from 'react-router-dom'
 
 class Poll extends React.Component {
 
+  state = {
+    pollInfo: {}
+  }
+
   async componentDidMount() {
-    const PollInfo = {"pollId": this.props.match.params.pollId}
-    const url = `/Api/467586970086574653/read`
-    const response = await fetch(url, {
+    const body = JSON.stringify(
+      {
+        pollId: this.props.match.params.pollId
+      }
+    )
+    const response = await fetch("/Api/467586970086574653/read", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(PollInfo)
+      body
     })
     const data = await response.json()
 
-    console.log(data)
+    this.setState({pollInfo: data.Response})
   }
   render() {
     return (
-      <p>{ this.props.match.params.pollId }</p>
+      <p>{ JSON.stringify(this.state.pollInfo) }</p>
     )
   }
 }
