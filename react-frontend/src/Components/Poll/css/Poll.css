@@ -30,6 +30,7 @@ progress {
 .PollResult {
   display: grid;
   grid-template-columns: 100px auto;
+  margin: 15px;
 }
 
 .PollResult > label {
