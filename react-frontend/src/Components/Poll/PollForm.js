@@ -26,7 +26,7 @@ const PollForm = ({ pollInfo }) => {
       flexDirection: "column"
     },
     Grow: {
-      flexGrow: 1
+      height: "100%"
     }
   })
   const classes = useStyles()
