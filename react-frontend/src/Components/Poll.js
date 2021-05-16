@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { withRouter } from 'react-router-dom'
-import { makeStyles, createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
+import { makeStyles } from '@material-ui/core/styles'
 import {
   FormControlLabel,
   Checkbox, Button,
@@ -9,31 +9,27 @@ import {
   useMediaQuery
 } from '@material-ui/core'
 
-const ThemeProviderComponent = ({ children }) => {
-  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
-  const theme = createMuiTheme({
-    palette: {
-      type: prefersDarkMode ? 'dark' : 'light',
-    },
-  })
-
-  return (
-    <ThemeProvider theme={theme}>
-      {children}
-    </ThemeProvider>
-  )
-}
+import ThemeProviderComponent from './ThemeProviderComponent'
 
 class Poll extends React.Component {
-  state = {
-    pollInfo: {},
-    pollOptions: {
-      optionA: false,
-      optionB: false,
-      optionC: false,
-      optionD: false,
-      optionE: false
+  constructor() {
+    this.state = {
+      pollInfo: {},
+      pollOptions: {
+        optionA: false,
+        optionB: false,
+        optionC: false,
+        optionD: false,
+        optionE: false
+      }
     }
+    this.useStyles = makeStyles({
+      Card: {
+        height: "450px",
+        width: "375px"
+      }
+    })
+    this.classes = this.useStyles()
   }
 
   async componentDidMount() {
@@ -65,7 +61,7 @@ class Poll extends React.Component {
   render() {
     return (
       <ThemeProviderComponent>
-        <Card>
+        <Card className={this.classes.Card}>
           <CardContent>
             <div clasName="PollTitle">
               <Typography>{this.state.pollInfo.title}</Typography>
