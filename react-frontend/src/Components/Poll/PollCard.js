@@ -8,7 +8,7 @@ import {
 import ThemeProviderComponent from '../ThemeProviderComponent'
 import PollForm from './PollForm'
 
-const PollCard = ({ pollInfo }) => {
+const PollCard = ({ pollId, pollInfo }) => {
 
   const useStyles = makeStyles({
     Card: {
@@ -29,7 +29,7 @@ const PollCard = ({ pollInfo }) => {
           <div clasName="PollTitle">
             <Typography variant="h3">{pollInfo.title}</Typography>
           </div>
-          <PollForm pollInfo={pollInfo}/>
+          <PollForm pollId={pollId} pollInfo={pollInfo}/>
         </CardContent>
       </Card>
     </ThemeProviderComponent>

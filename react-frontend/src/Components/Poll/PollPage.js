@@ -35,7 +35,7 @@ class PollPage extends React.Component {
 
   render() {
     return (
-      <PollCard pollInfo={this.state.pollInfo}/>
+      <PollCard pollId={this.props.match.params.pollId} pollInfo={this.state.pollInfo}/>
     )
   }
 }

@@ -8,7 +8,7 @@ import {
   useMediaQuery
 } from '@material-ui/core'
 
-const PollForm = ({ pollInfo }) => {
+const PollForm = ({ pollId, pollInfo }) => {
 
   const [pollOptions, setPollOptions] = useState(
     {
@@ -39,22 +39,41 @@ const PollForm = ({ pollInfo }) => {
     setPollOptions({[event.target.name]: [event.target.checked]})
   }
 
-  const submitHandler = (event) => {
+  const submitHandler = async (event) => {
     event.preventDefault()
 
+    let option = ""
+
     if (pollOptions.optionA) {
-
+      option = "A"
     } else if (pollOptions.optionB) {
-
+      option = "B"
     } else if (pollOptions.optionC) {
-
+      option = "C"
     } else if (pollOptions.optionD) {
-
+      option = "D"
     } else if (pollOptions.optionE) {
-
+      option = "E"
     } else {
       console.warn("No option selected")
+      return ""
     }
+
+    const body = JSON.stringify(
+      {
+        pollId,
+        option
+      }
+    )
+    const response = await fetch("/Api/467586970086574653/vote", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body
+    })
+    const data = await response.json()
+    console.log(data)
   }
 
   return (

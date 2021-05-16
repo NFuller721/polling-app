@@ -83,20 +83,7 @@ def Api(key, option):
                 pollId = int(request.json["pollId"])
                 option = request.json["option"]
 
-                if option == "A":
-                    return {"Response": "Voted"}
-                elif option == "B":
-                    return {"Response": "Voted"}
-                elif option == "C":
-                    return {"Response": "Voted"}
-                elif option == "D":
-                    return {"Response": "Voted"}
-                elif option == "E":
-                    return {"Response": "Voted"}
-                else:
-                    return {"Error": "invalid option"}
-
-                return {"Response": "200 - ok"}
+                return Vote(option)
             return {"Error": "This action needs a POST request to work"}
     return {"Error": "Wrong key!"}
 
