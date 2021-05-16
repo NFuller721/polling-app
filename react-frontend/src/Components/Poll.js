@@ -11,7 +11,7 @@ class Poll extends React.Component {
       headers: {
         'Content-Type': 'application/json;charset=utf-8'
       },
-      body: JSON.stringify(PollInfo)
+      body: PollInfo
     })
     const data = await response.json()
 
