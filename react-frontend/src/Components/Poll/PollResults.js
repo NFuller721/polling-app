@@ -15,9 +15,27 @@ class PollResults extends React.Component {
     }
   }
 
-  sum(Response) {
-    return Response.optionACount + Response.optionBCount + Response.optionCCount + Response.optionDCount + Response.optionECount
+  setAll(Response) {
+
+    let All = 0
+    All += Response.optionACount != null ? Response.optionACount : 0
+    All += Response.optionBCount != null ? Response.optionBCount : 0
+    All += Response.optionCCount != null ? Response.optionCCount : 0
+    All += Response.optionDCount != null ? Response.optionDCount : 0
+    All += Response.optionDCount != null ? Response.optionDCount : 0
+
+    this.setState(
+      {
+        optionACount: Response.optionACount,
+        optionBCount: Response.optionBCount,
+        optionCCount: Response.optionCCount,
+        optionDCount: Response.optionDCount,
+        optionECount: Response.optionECount,
+        All
+      }
+    )
   }
+
 
   async componentDidMount() {
     const body = JSON.stringify(
@@ -40,9 +58,11 @@ class PollResults extends React.Component {
   render() {
     return (
       <div className="PollResults">
-        <PollResult value="1" max={this.state.All} label="Hello There"/>
-        <PollResult value="2" max={this.state.All} label="Hello There"/>
-        <PollResult value="1" max={this.state.All} label="Hello There"/>
+        { this.state.optionACount != null ? <PollResult value={this.state.optionACount} max={this.state.All} label="Hello There"/> : <></>}
+        { this.state.optionBCount != null ? <PollResult value={this.state.optionBCount} max={this.state.All} label="Hello There"/> : <></>}
+        { this.state.optionCCount != null ? <PollResult value={this.state.optionCCount} max={this.state.All} label="Hello There"/> : <></>}
+        { this.state.optionDCount != null ? <PollResult value={this.state.optionDCount} max={this.state.All} label="Hello There"/> : <></>}
+        { this.state.optionECount != null ? <PollResult value={this.state.optionECount} max={this.state.All} label="Hello There"/> : <></>}
       </div>
     )
   }
