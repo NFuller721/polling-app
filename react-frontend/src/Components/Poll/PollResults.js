@@ -3,8 +3,8 @@ import PollResult from './PollResult'
 import { withRouter } from 'react-router-dom'
 
 class PollResults extends React.Component {
-  constructor() {
-
+  constructor(props) {
+    super(props)
   }
 
   async componentDidMount() {
