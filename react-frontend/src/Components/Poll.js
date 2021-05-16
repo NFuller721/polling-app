@@ -33,7 +33,7 @@ class Poll extends React.Component {
     this.setState({pollInfo: data.Response})
   }
 
-  checkHandler(event) {
+  checkHandler = (event) => {
     this.setState({pollOptions: {[event.target.name]: [event.target.checked]}})
   }
 
