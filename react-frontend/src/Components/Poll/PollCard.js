@@ -33,7 +33,7 @@ const PollCard = ({ pollId, pollInfo }) => {
   const onLoad = async () => {
     const body = JSON.stringify(
       {
-        pollId: this.props.match.params.pollId
+        pollId
       }
     )
     const response = await fetch("/Api/467586970086574653/read", {
