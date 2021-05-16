@@ -24,6 +24,11 @@ class Poll extends React.Component {
     const data = await response.json()
 
     this.setState({pollInfo: data.Response})
+    console.log(!(this.state.pollInfo.optionACount >= 0))
+    console.log(!(this.state.pollInfo.optionBCount >= 0))
+    console.log(!(this.state.pollInfo.optionCCount >= 0))
+    console.log(!(this.state.pollInfo.optionDCount >= 0))
+    console.log(!(this.state.pollInfo.optionECount >= 0))
   }
   render() {
     return (
@@ -32,7 +37,7 @@ class Poll extends React.Component {
         { !(this.state.pollInfo.optionBCount >= 0) ? <div></div> : <Checkbox checked={false} />}
         { !(this.state.pollInfo.optionCCount >= 0) ? <div></div> : <Checkbox checked={false} />}
         { !(this.state.pollInfo.optionDCount >= 0) ? <div></div> : <Checkbox checked={false} />}
-        { !(this.state.pollInfo.optioneCount >= 0) ? <div></div> : <Checkbox checked={false} />}
+        { !(this.state.pollInfo.optionECount >= 0) ? <div></div> : <Checkbox checked={false} />}
       </form>
     )
   }
