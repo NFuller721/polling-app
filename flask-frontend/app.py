@@ -28,11 +28,10 @@ def Api(key, option):
     if key == "467586970086574653":
         if option == "read":
             if request.method == "POST":
-                print(request.form)
-                pollId = request.form["pollId"]
+                pollId = int(request.json["pollId"])
 
                 Database, Cursor = Start()
-                Poll = Read(Database=Database, Cursor=Cursor, table="Polls", id=int(pollId))[0]
+                Poll = Read(Database=Database, Cursor=Cursor, table="Polls", id=pollId)[0]
 
                 Response = {
                 "id": Poll[0],
