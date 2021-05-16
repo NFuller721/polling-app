@@ -52,7 +52,7 @@ class PollResults extends React.Component {
     })
     const data = await response.json()
 
-    this.setState({All: this.sum(Response)})
+    this.setAll(data.Response)
   }
 
   render() {
