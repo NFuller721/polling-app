@@ -5,7 +5,7 @@ import { Checkbox } from '@material-ui/core'
 class Poll extends React.Component {
 
   state = {
-    pollInfo: {}
+    pollInfo: {},
     pollOptions: {
       optionA: false,
       optionB: false,
