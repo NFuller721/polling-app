@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { makeStyles } from '@material-ui/core/styles'
 import {
   FormControlLabel,
   Checkbox, Button,
@@ -7,7 +8,8 @@ import {
   useMediaQuery
 } from '@material-ui/core'
 
-const PollForm = ({ pollInfo, className }) => {
+const PollForm = ({ pollInfo }) => {
+
   const [pollOptions, setPollOptions] = useState(
     {
       optionA: false,
@@ -18,6 +20,14 @@ const PollForm = ({ pollInfo, className }) => {
     }
   )
 
+  const useStyles = makeStyles({
+    Form: {
+      display: "flex",
+      flexDirection: "column"
+    }
+  })
+  const classes = useStyles()
+
   const checkHandler = (event) => {
     setPollOptions({[event.target.name]: [event.target.checked]})
   }
@@ -27,7 +37,7 @@ const PollForm = ({ pollInfo, className }) => {
   }
 
   return (
-    <form className={className} onSubmit={submitHandler} className="Poll">
+    <form className={classes.Form} onSubmit={submitHandler} className="Poll">
       { pollInfo.optionACount == null ? <div></div> : (
         <FormControlLabel
           control={<Checkbox name="optionA" onChange={checkHandler} checked={pollOptions.optionA} />}

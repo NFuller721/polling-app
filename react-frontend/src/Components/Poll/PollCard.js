@@ -14,10 +14,6 @@ const PollCard = ({ pollInfo }) => {
     Card: {
       height: "450px",
       width: "375px"
-    },
-    Form: {
-      display: "flex",
-      flexDirection: "column"
     }
   })
   const classes = useStyles()
@@ -29,7 +25,7 @@ const PollCard = ({ pollInfo }) => {
           <div clasName="PollTitle">
             <Typography variant="h3">{pollInfo.title}</Typography>
           </div>
-          <PollForm className={classes.Form} pollInfo={pollInfo}/>
+          <PollForm pollInfo={pollInfo}/>
         </CardContent>
       </Card>
     </ThemeProviderComponent>
