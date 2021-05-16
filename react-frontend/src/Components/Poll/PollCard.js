@@ -26,7 +26,7 @@ const PollCard = ({ pollId, pollInfo }) => {
   })
   const classes = useStyles()
 
-  pollInfo.then((result) => {
+  pollInfo.voted.then((result) => {
     setVoted(pollInfo.voted)
   })
 
