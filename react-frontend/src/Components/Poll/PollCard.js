@@ -12,6 +12,8 @@ import PollResults from './PollResults'
 
 const PollCard = ({ pollId, pollInfo }) => {
 
+  console.log(pollInfo.voted)
+
   const useStyles = makeStyles({
     Card: {
       height: "450px",
