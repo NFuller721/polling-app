@@ -39,4 +39,5 @@ progress {
   overflow: overlay;
   background-color: #42424242;
   font-family: arial;
+  padding: 10px;
 }
