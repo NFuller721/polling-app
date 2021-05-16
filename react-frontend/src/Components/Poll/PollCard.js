@@ -3,7 +3,8 @@ import { makeStyles } from '@material-ui/core/styles'
 import {
   Card, CardContent,
   Typography,
-  useMediaQuery
+  useMediaQuery,
+  Button
 } from '@material-ui/core'
 
 import ThemeProviderComponent from '../ThemeProviderComponent'
@@ -30,16 +31,20 @@ const PollCard = ({ pollId, pollInfo }) => {
     setVoted(!voted)
   }
 
+
+
   return (
     <ThemeProviderComponent>
       <Card className={classes.Card}>
         <CardContent className={classes.CardContent}>
           <div clasName="PollTitle">
-            <Typography variant="h3">{pollInfo.title} { pollInfo.voted }</Typography>
+            <Typography variant="h3">{pollInfo.title}</Typography>
           </div>
           { !voted ? <PollForm pollId={pollId} pollInfo={pollInfo} onVote={onVote} /> : <PollResults />}
         </CardContent>
       </Card>
+
+      <Button onClick={() => { console.log(pollInfo.voted)}}></Button>
     </ThemeProviderComponent>
   )
 }
