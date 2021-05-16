@@ -27,8 +27,18 @@ def index(path):
 def Api(key, pollId):
     if key == "API_KEY":
         Database, Cursor = Start()
-        Response = Read(Database=Database, Cursor=Cursor, table="Polls")
-        
+        Poll, = Read(Database=Database, Cursor=Cursor, table="Polls", id=pollId)
+
+        Response = {
+            "id": Poll[0],
+            "title": Poll[1],
+            "optionACount": Poll[2],
+            "optionBCount": Poll[3],
+            "optionCCount": Poll[4],
+            "optionDCount": Poll[5],
+            "optionECount": Poll[6],
+        }
+
         return {"Response": Response}
     return {"Error": "Wrong key!"}
 
