@@ -26,9 +26,9 @@ const PollCard = ({ pollId, pollInfo }) => {
   })
   const classes = useStyles()
 
-  React.useEffect(() => {
-    setTimeout(() => setVoted(pollInfo.voted), 1000);
-  }, []);
+  pollInfo.then((result) => {
+    setVoted(pollInfo.voted)
+  })
 
   const onVote = () => {
     setVoted(!voted)
