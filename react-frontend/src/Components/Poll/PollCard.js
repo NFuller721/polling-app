@@ -13,8 +13,6 @@ import PollResults from './PollResults'
 const PollCard = ({ pollId, pollInfo }) => {
   const [voted, setVoted] = useState(pollInfo.voted)
 
-  setVoted(pollInfo.voted)
-
   const useStyles = makeStyles({
     Card: {
       height: "450px",
