@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { withRouter } from 'react-router-dom'
 import PollCard from './PollCard'
 
-class Poll extends React.Component {
+class PollPage extends React.Component {
 
   constructor(props) {
     super(props)
@@ -40,4 +40,4 @@ class Poll extends React.Component {
   }
 }
 
-export default withRouter(Poll)
+export default withRouter(PollPage)

@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Switch, useParams } from 'react-router-dom'
-import Poll from './Components/Poll'
+import PollPage from './Components/Poll/PollPage'
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
             <p>Hello There</p>
           </Route>
           <Route exact path="/poll/:pollId">
-            <Poll />
+            <PollPage />
           </Route>
         </Switch>
       </div>
