@@ -14,6 +14,10 @@ const PollCard = ({ pollInfo }) => {
     Card: {
       height: "450px",
       width: "375px"
+    },
+    CardContent: {
+      boxSizing: "border-box",
+      height: "calc(100% - 16px)"
     }
   })
   const classes = useStyles()

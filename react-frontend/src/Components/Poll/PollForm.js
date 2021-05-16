@@ -25,8 +25,8 @@ const PollForm = ({ pollInfo }) => {
       display: "flex",
       flexDirection: "column"
     },
-    Grow: {
-      height: "100%"
+    Button: {
+      justifySelf: "flex-end"
     }
   })
   const classes = useStyles()
@@ -71,8 +71,7 @@ const PollForm = ({ pollInfo }) => {
           label={pollInfo.optionETitle}
           />
       )}
-      <div className={classes.Grow}></div>
-      <Button variant="contained" type="submit">Vote</Button>
+      <Button className={classes.Button} variant="contained" type="submit">Vote</Button>
     </form>
   )
 }
