@@ -31,10 +31,10 @@ class Poll extends React.Component {
         width: "375px"
       }
     })
-    this.classes = this.useStyles()
   }
 
   async componentDidMount() {
+    this.classes = this.useStyles()
     const body = JSON.stringify(
       {
         pollId: this.props.match.params.pollId
