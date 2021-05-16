@@ -25,6 +25,9 @@ const PollForm = ({ pollInfo }) => {
       display: "flex",
       flexDirection: "column"
     },
+    Grow: {
+      flexGrow: 1
+    },
     Button: {
       justifySelf: "flex-end"
     }
@@ -71,6 +74,7 @@ const PollForm = ({ pollInfo }) => {
           label={pollInfo.optionETitle}
           />
       )}
+      <div className={classes.Grow}></div>
       <Button className={classes.Button} variant="contained" type="submit">Vote</Button>
     </form>
   )
