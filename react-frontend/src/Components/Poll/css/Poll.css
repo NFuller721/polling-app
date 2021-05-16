@@ -29,11 +29,11 @@ progress {
 
 .PollResult {
   display: grid;
-  grid-template-columns: 100px auto;
   margin: 15px;
 }
 
 .PollResult > label {
+  position: absolute;
   text-align: center;
   line-height: 40px;
   overflow: overlay;
