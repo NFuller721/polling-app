@@ -1,10 +1,15 @@
-import { Button } from '@material-ui/core'
+import { Card, CardContent, Typography, Button } from '@material-ui/core'
+import ThemeProviderComponent from '../ThemeProviderComponent'
 
 const CreatePollForm = () => {
   return (
-    <div>
-      <Button variant="contained">Create Poll</Button>
-    </div>
+    <ThemeProviderComponent>
+      <Card>
+        <CardContent>
+          <Button variant="contained">Create Poll</Button>
+        </CardContent>
+      </Card>
+    </ThemeProviderComponent>
   )
 }
 
