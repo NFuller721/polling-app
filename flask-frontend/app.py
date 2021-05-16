@@ -34,13 +34,18 @@ def Api(key, option):
                 Poll = Read(Database=Database, Cursor=Cursor, table="Polls", id=pollId)[0]
 
                 Response = {
-                "id": Poll[0],
-                "title": Poll[1],
-                "optionACount": Poll[2],
-                "optionBCount": Poll[3],
-                "optionCCount": Poll[4],
-                "optionDCount": Poll[5],
-                "optionECount": Poll[6],
+                    "id": Poll[0],
+                    "title": Poll[1],
+                    "optionACount": Poll[2],
+                    "optionATitle": Poll[3],
+                    "optionBCount": Poll[4],
+                    "optionBTitle": Poll[5],
+                    "optionCCount": Poll[6],
+                    "optionCTitle": Poll[7],
+                    "optionDCount": Poll[8],
+                    "optionDTitle": Poll[9],
+                    "optionECount": Poll[10],
+                    "optionETitle": Poll[11],
                 }
 
                 return {"Response": Response}
