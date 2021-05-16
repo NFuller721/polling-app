@@ -18,7 +18,7 @@ def Start():
 
     return Database, Cursor
 
-def Vote(option):
+def Vote(pollId, option):
     Database, Cursor = Start()
     if option == "A":
         Count = Read(Database=Database, Cursor=Cursor, table="Polls", id=pollId, column="optionACount")[0][0]
@@ -84,7 +84,7 @@ def Api(key, option):
                 pollId = int(request.json["pollId"])
                 option = request.json["option"]
 
-                return Vote(option)
+                return Vote(pollId, option)
             return {"Error": "This action needs a POST request to work"}
     return {"Error": "Wrong key!"}
 
