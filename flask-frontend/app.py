@@ -60,7 +60,7 @@ def index(path):
 
 @App.route('/Api/<key>/<option>', methods=["GET", "POST"])
 def Api(key, option):
-    if session["voted"] == True:
+    if "voted" not in session:
         session["voted"] = False
     if key == "467586970086574653":
         if option == "read":
