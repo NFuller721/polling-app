@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/Components/Poll/css/Poll.css"],"names":[],"mappings":"AAAA,YACE,UACF","file":"main.82f56f71.chunk.css","sourcesContent":[".PollForm > * {\n  margin: 5px;\n}\n"]}
