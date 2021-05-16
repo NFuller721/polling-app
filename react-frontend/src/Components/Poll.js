@@ -1,16 +1,28 @@
 import React, { useEffect, useState } from 'react'
 import { withRouter } from 'react-router-dom'
-import { makeStyles } from '@material-ui/core/styles'
+import { makeStyles, createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
 import {
   FormControlLabel,
   Checkbox, Button,
   Card, CardContent,
-  Typography
+  Typography,
+  useMediaQuery
 } from '@material-ui/core'
 
-// const useStyles = makeStyles({
-//
-// });
+const ThemeProviderComponent = ({ children }) => {
+  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
+  const theme = createMuiTheme({
+    palette: {
+      type: prefersDarkMode ? 'dark' : 'light',
+    },
+  })
+
+  return (
+    <ThemeProvider theme={theme}>
+      {children}
+    </ThemeProvider>
+  )
+}
 
 class Poll extends React.Component {
   state = {
@@ -52,46 +64,48 @@ class Poll extends React.Component {
 
   render() {
     return (
-      <Card>
-        <CardContent>
-          <div clasName="PollTitle">
-            <Typography>{this.state.pollInfo.title}</Typography>
-          </div>
-          <form onSubmit={this.submitHandler} className="Poll">
-            { this.state.pollInfo.optionACount == null ? <div></div> : (
-              <FormControlLabel
-                control={<Checkbox name="optionA" onChange={this.checkHandler} checked={this.state.pollOptions.optionA} />}
-                label={this.state.pollInfo.optionATitle}
-                />
-            )}
-            { this.state.pollInfo.optionBCount == null ? <div></div> : (
-              <FormControlLabel
-                control={<Checkbox name="optionB" onChange={this.checkHandler} checked={this.state.pollOptions.optionB} />}
-                label={this.state.pollInfo.optionBTitle}
-                />
-            )}
-            { this.state.pollInfo.optionCCount == null ? <div></div> : (
-              <FormControlLabel
-                control={<Checkbox name="optionC" onChange={this.checkHandler} checked={this.state.pollOptions.optionC} />}
-                label={this.state.pollInfo.optionCTitle}
-                />
-            )}
-            { this.state.pollInfo.optionDCount == null ? <div></div> : (
-              <FormControlLabel
-                control={<Checkbox name="optionD" onChange={this.checkHandler} checked={this.state.pollOptions.optionD} />}
-                label={this.state.pollInfo.optionDTitle}
-                />
-            )}
-            { this.state.pollInfo.optionECount == null ? <div></div> : (
-              <FormControlLabel
-                control={<Checkbox name="optionE" onChange={this.checkHandler} checked={this.state.pollOptions.optionE} />}
-                label={this.state.pollInfo.optionETitle}
-                />
-            )}
-            <Button variant="contained" type="submit">Submit</Button>
-          </form>
-        </CardContent>
-      </Card>
+      <ThemeProviderComponent>
+        <Card>
+          <CardContent>
+            <div clasName="PollTitle">
+              <Typography>{this.state.pollInfo.title}</Typography>
+            </div>
+            <form onSubmit={this.submitHandler} className="Poll">
+              { this.state.pollInfo.optionACount == null ? <div></div> : (
+                <FormControlLabel
+                  control={<Checkbox name="optionA" onChange={this.checkHandler} checked={this.state.pollOptions.optionA} />}
+                  label={this.state.pollInfo.optionATitle}
+                  />
+              )}
+              { this.state.pollInfo.optionBCount == null ? <div></div> : (
+                <FormControlLabel
+                  control={<Checkbox name="optionB" onChange={this.checkHandler} checked={this.state.pollOptions.optionB} />}
+                  label={this.state.pollInfo.optionBTitle}
+                  />
+              )}
+              { this.state.pollInfo.optionCCount == null ? <div></div> : (
+                <FormControlLabel
+                  control={<Checkbox name="optionC" onChange={this.checkHandler} checked={this.state.pollOptions.optionC} />}
+                  label={this.state.pollInfo.optionCTitle}
+                  />
+              )}
+              { this.state.pollInfo.optionDCount == null ? <div></div> : (
+                <FormControlLabel
+                  control={<Checkbox name="optionD" onChange={this.checkHandler} checked={this.state.pollOptions.optionD} />}
+                  label={this.state.pollInfo.optionDTitle}
+                  />
+              )}
+              { this.state.pollInfo.optionECount == null ? <div></div> : (
+                <FormControlLabel
+                  control={<Checkbox name="optionE" onChange={this.checkHandler} checked={this.state.pollOptions.optionE} />}
+                  label={this.state.pollInfo.optionETitle}
+                  />
+              )}
+              <Button variant="contained" type="submit">Submit</Button>
+            </form>
+          </CardContent>
+        </Card>
+      </ThemeProviderComponent>
     )
   }
 }
