@@ -19,6 +19,7 @@ def Start():
     return Database, Cursor
 
 def Vote(option):
+    Database, Cursor = Start()
     if option == "A":
         Count = Read(Database=Database, Cursor=Cursor, table="Polls", id=pollId, column="optionACount")[0][0]
         print(Count)
