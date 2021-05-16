@@ -27,7 +27,7 @@ def index(path):
 def Api(key, pollId):
     if key == "API_KEY":
         Database, Cursor = Start()
-        Poll, = Read(Database=Database, Cursor=Cursor, table="Polls", id=pollId)
+        Poll = Read(Database=Database, Cursor=Cursor, table="Polls", id=pollId)
 
         Response = {
             "id": Poll[0],
