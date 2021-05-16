@@ -2,7 +2,7 @@ import React from 'react'
 
 const PollResult = ({ value, max, label }) => {
   return (
-    <div>
+    <div className="PollResults">
       <label>{label}</label>
       <progress value={value} max={max}></progress>
     </div>
