@@ -28,11 +28,11 @@ class Poll extends React.Component {
   render() {
     return (
       <form>
-        { !this.state.pollInfo.optionACount.length ? <div></div> : <Checkbox checked={false} />}
-        { !this.state.pollInfo.optionBCount.length ? <div></div> : <Checkbox checked={false} />}
-        { !this.state.pollInfo.optionCCount.length ? <div></div> : <Checkbox checked={false} />}
-        { !this.state.pollInfo.optionDCount.length ? <div></div> : <Checkbox checked={false} />}
-        { !this.state.pollInfo.optionECount.length ? <div></div> : <Checkbox checked={false} />}
+        { !this.state.pollInfo.optionACount ? <div></div> : <Checkbox checked={false} />}
+        { !this.state.pollInfo.optionBCount ? <div></div> : <Checkbox checked={false} />}
+        { !this.state.pollInfo.optionCCount ? <div></div> : <Checkbox checked={false} />}
+        { !this.state.pollInfo.optionDCount ? <div></div> : <Checkbox checked={false} />}
+        { !this.state.pollInfo.optionECount ? <div></div> : <Checkbox checked={false} />}
       </form>
     )
   }
