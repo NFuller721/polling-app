@@ -42,7 +42,19 @@ const PollForm = ({ pollInfo }) => {
   const submitHandler = (event) => {
     event.preventDefault()
 
-    console.log(parseInt(pollOptions.optionA))
+    if (pollOptions.optionA) {
+
+    } else if (pollOptions.optionB) {
+
+    } else if (pollOptions.optionC) {
+
+    } else if (pollOptions.optionD) {
+
+    } else if (pollOptions.optionE) {
+
+    } else {
+      console.warn("No option selected")
+    }
   }
 
   return (
