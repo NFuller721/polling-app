@@ -24,20 +24,15 @@ class Poll extends React.Component {
     const data = await response.json()
 
     this.setState({pollInfo: data.Response})
-
-    console.log(this.state.pollInfo.optionACount == 0 ? "Does exist" : "Doesn't exist")
-    console.log(this.state.pollInfo.optionACount)
-    console.log(this.state.pollInfo.optionECount ? "Does exist" : "Doesn't exist")
-    console.log(this.state.pollInfo.optionECount)
   }
   render() {
     return (
       <form>
-        { !this.state.pollInfo.optionACount ? <div></div> : <Checkbox checked={false} />}
-        { !this.state.pollInfo.optionBCount ? <div></div> : <Checkbox checked={false} />}
-        { !this.state.pollInfo.optionCCount ? <div></div> : <Checkbox checked={false} />}
-        { !this.state.pollInfo.optionDCount ? <div></div> : <Checkbox checked={false} />}
-        { !this.state.pollInfo.optionECount ? <div></div> : <Checkbox checked={false} />}
+        { !(this.state.pollInfo.optionACount >= 0) ? <div></div> : <Checkbox checked={false} />}
+        { !(this.state.pollInfo.optionBCount >= 0) ? <div></div> : <Checkbox checked={false} />}
+        { !(this.state.pollInfo.optionCCount >= 0) ? <div></div> : <Checkbox checked={false} />}
+        { !(this.state.pollInfo.optionDCount >= 0) ? <div></div> : <Checkbox checked={false} />}
+        { !(this.state.pollInfo.optioneCount >= 0) ? <div></div> : <Checkbox checked={false} />}
       </form>
     )
   }
