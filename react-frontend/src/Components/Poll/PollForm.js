@@ -8,7 +8,7 @@ import {
   useMediaQuery
 } from '@material-ui/core'
 
-const PollForm = ({ pollId, pollInfo }) => {
+const PollForm = ({ pollId, pollInfo, onVote }) => {
 
   const [pollOptions, setPollOptions] = useState(
     {
@@ -74,7 +74,8 @@ const PollForm = ({ pollId, pollInfo }) => {
     })
     const data = await response.json()
 
-    window.location.replace("/");
+    onVote()
+
   }
 
   return (

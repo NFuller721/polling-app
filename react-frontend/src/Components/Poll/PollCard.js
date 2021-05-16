@@ -1,3 +1,4 @@
+import React, { useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import {
   Card, CardContent,
@@ -22,6 +23,12 @@ const PollCard = ({ pollId, pollInfo }) => {
   })
   const classes = useStyles()
 
+  const [voted, setVoted] = useState(false)
+
+  const onVote = () => {
+    setVoted(!voted)
+  }
+
   return (
     <ThemeProviderComponent>
       <Card className={classes.Card}>
@@ -29,7 +36,7 @@ const PollCard = ({ pollId, pollInfo }) => {
           <div clasName="PollTitle">
             <Typography variant="h3">{pollInfo.title}</Typography>
           </div>
-          <PollForm pollId={pollId} pollInfo={pollInfo}/>
+          { !voted ? <PollForm pollId={pollId} pollInfo={pollInfo} onVote={onVote}/> : <p>Voted</p>}
         </CardContent>
       </Card>
     </ThemeProviderComponent>
