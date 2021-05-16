@@ -41,6 +41,8 @@ const PollForm = ({ pollInfo }) => {
 
   const submitHandler = (event) => {
     event.preventDefault()
+
+    console.log(parseInt(pollOptions.optionA))
   }
 
   return (
