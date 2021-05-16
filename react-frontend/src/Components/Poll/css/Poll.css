@@ -3,10 +3,29 @@
 }
 
 /* background: */
-progress::-webkit-progress-bar {background-color: transparent; width: 100%;}
-progress {background-color: transparent;}
+progress::-webkit-progress-bar {
+  background-color: transparent; width: 100%;
+}
+progress {
+  background-color: transparent;
+}
 
 /* value: */
-progress::-webkit-progress-value {background-color: white !important;}
-progress::-moz-progress-bar {background-color: white !important;}
-progress {color: white;}
+progress::-webkit-progress-value {
+  background-color: white !important;
+  width: 100%;
+  margin: 5px;
+  height: 30px;
+}
+progress::-moz-progress-bar {
+  background-color: white !important;
+  width: 100%;
+  margin: 5px;
+  height: 30px;
+}
+progress {
+  color: white;
+  width: 100%;
+  margin: 5px;
+  height: 30px;
+}
