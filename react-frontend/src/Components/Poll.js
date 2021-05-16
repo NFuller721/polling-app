@@ -25,7 +25,8 @@ class Poll extends React.Component {
 
     this.setState({pollInfo: data.Response})
 
-    console.log(this.state.pollInfo)
+    console.log(!this.state.pollInfo.optionACount)
+    console.log(this.state.pollInfo.optionACount)
   }
   render() {
     return (
