@@ -11,8 +11,8 @@ import ThemeProviderComponent from '../ThemeProviderComponent'
 import PollForm from './PollForm'
 import PollResults from './PollResults'
 
-const PollCard = ({ pollId, pollInfo }) => {
-  const [voted, setVoted] = useState(pollInfo.voted)
+const PollCard = async ({ pollId, pollInfo }) => {
+  const [voted, setVoted] = useState(await pollInfo.voted)
 
   const useStyles = makeStyles({
     Card: {
