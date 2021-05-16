@@ -1,11 +1,17 @@
-import React from 'react'
+// Components
 import PollResult from './PollResult'
+
+// React
+import React from 'react'
+// React router
 import { withRouter } from 'react-router-dom'
 
 class PollResults extends React.Component {
+
+  // Constructor
   constructor(props) {
     super(props)
-    this.state = {
+    this.defaultState = {
       optionACount: 0,
       optionBCount: 0,
       optionCCount: 0,
@@ -18,10 +24,12 @@ class PollResults extends React.Component {
       optionETitle: "",
       All: 0,
     }
+    this.state = this.defaultState
   }
 
+  // Set All States
   setAll(Response) {
-
+    // Count all votes
     let All = 0
     All += Response.optionACount != null ? Response.optionACount : 0
     All += Response.optionBCount != null ? Response.optionBCount : 0
@@ -29,44 +37,37 @@ class PollResults extends React.Component {
     All += Response.optionDCount != null ? Response.optionDCount : 0
     All += Response.optionDCount != null ? Response.optionDCount : 0
 
-
-
-    this.setState(
-      {
-        optionACount: Response.optionACount,
-        optionBCount: Response.optionBCount,
-        optionCCount: Response.optionCCount,
-        optionDCount: Response.optionDCount,
-        optionECount: Response.optionECount,
-        optionATitle: Response.optionATitle,
-        optionBTitle: Response.optionBTitle,
-        optionCTitle: Response.optionCTitle,
-        optionDTitle: Response.optionDTitle,
-        optionETitle: Response.optionETitle,
-        All
-      }
-    )
+    // Set state
+    this.setState({
+      optionACount: Response.optionACount,
+      optionBCount: Response.optionBCount,
+      optionCCount: Response.optionCCount,
+      optionDCount: Response.optionDCount,
+      optionECount: Response.optionECount,
+      optionATitle: Response.optionATitle,
+      optionBTitle: Response.optionBTitle,
+      optionCTitle: Response.optionCTitle,
+      optionDTitle: Response.optionDTitle,
+      optionETitle: Response.optionETitle,
+      All
+    })
   }
 
-
+  // componentDidMount
   async componentDidMount() {
-    const body = JSON.stringify(
-      {
-        pollId: this.props.match.params.pollId
-      }
-    )
     const response = await fetch("/Api/467586970086574653/read", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body
+      body: JSON.stringify({ pollId: this.props.match.params.pollId })
     })
     const data = await response.json()
 
     this.setAll(data.Response)
   }
 
+  // Return Results
   render() {
     return (
       <div className="PollResults">

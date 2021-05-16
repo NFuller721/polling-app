@@ -1,42 +1,42 @@
-import React, { useState } from 'react'
-import { withRouter } from 'react-router-dom'
+// Components
 import PollCard from './PollCard'
+
+// React
+import React, { useState } from 'react'
+// React router
+import { withRouter } from 'react-router-dom'
+
+// CSS
 import './css/Poll.css'
+
+// Poll Page
 class PollPage extends React.Component {
 
+  // Constructor
   constructor(props) {
     super(props)
-    this.state = {
-      pollInfo: {}
-    }
+    this.state = { pollInfo: {} }
   }
 
+  // componentDidMount
   async componentDidMount() {
-    const body = JSON.stringify(
-      {
-        pollId: this.props.match.params.pollId
-      }
-    )
     const response = await fetch("/Api/467586970086574653/read", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body
+      body: JSON.stringify({ pollId: this.props.match.params.pollId })
     })
     const data = await response.json()
 
     this.setState({pollInfo: data.Response})
-
-  }
-
-  setPollInfo = (info) => {
-    this.setState({pollInfo: info})
   }
 
   render() {
     return (
-      <PollCard pollId={this.props.match.params.pollId} pollInfo={this.state.pollInfo}/>
+      <PollCard
+        pollId={ this.props.match.params.pollId }
+        pollInfo={ this.state.pollInfo }/>
     )
   }
 }

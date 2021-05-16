@@ -1,25 +1,23 @@
+// React
 import React, { useState } from 'react'
+// Material-ui
+import { FormControlLabel, Checkbox, Button } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
-import {
-  FormControlLabel,
-  Checkbox, Button,
-  Card, CardContent,
-  Typography,
-  useMediaQuery
-} from '@material-ui/core'
 
+// Poll Form
 const PollForm = ({ pollId, pollInfo, onVote }) => {
 
-  const [pollOptions, setPollOptions] = useState(
-    {
-      optionA: false,
-      optionB: false,
-      optionC: false,
-      optionD: false,
-      optionE: false
-    }
-  )
+  // State
+  const defaultPollOptions = {
+    optionA: false,
+    optionB: false,
+    optionC: false,
+    optionD: false,
+    optionE: false
+  }
+  const [pollOptions, setPollOptions] = useState(defaultPollOptions)
 
+  // Styles
   const useStyles = makeStyles({
     Form: {
       display: "flex",
@@ -35,51 +33,59 @@ const PollForm = ({ pollId, pollInfo, onVote }) => {
   })
   const classes = useStyles()
 
+  // Handle Checkboxes
   const checkHandler = (event) => {
     setPollOptions({[event.target.name]: [event.target.checked]})
   }
 
-  const submitHandler = async (event) => {
-    event.preventDefault()
-
-    let option = ""
-
+  // whatOption
+  const whatOption = () => {
     if (pollOptions.optionA) {
-      option = "A"
+      return "A"
     } else if (pollOptions.optionB) {
-      option = "B"
+      return "B"
     } else if (pollOptions.optionC) {
-      option = "C"
+      return "C"
     } else if (pollOptions.optionD) {
-      option = "D"
+      return "D"
     } else if (pollOptions.optionE) {
-      option = "E"
+      return "E"
     } else {
       console.warn("No option selected")
       return ""
     }
+  }
 
-    const body = JSON.stringify(
-      {
-        pollId,
-        option
-      }
-    )
+  // Handle form submit
+  const submitHandler = async (event) => {
+    // Prevent default submit
+    event.preventDefault()
+
+    // whatOption
+    const option = whatOption()
+
+    // Return if option is empty
+    if (option == "") return
+
+    // Make vote request
     const response = await fetch("/Api/467586970086574653/vote", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body
+      body: JSON.stringify({pollId, option})
     })
     const data = await response.json()
 
+    // Invert voted
     onVote()
-
   }
 
   return (
-    <form onSubmit={submitHandler} className={"PollForm " + classes.Form}>
+    <form
+      onSubmit={submitHandler}
+      className={"PollForm " + classes.Form}>
+
       { pollInfo.optionACount == null ? <div></div> : (
         <FormControlLabel
           control={<Checkbox name="optionA" onChange={checkHandler} checked={pollOptions.optionA} />}
@@ -110,6 +116,7 @@ const PollForm = ({ pollId, pollInfo, onVote }) => {
           label={pollInfo.optionETitle}
           />
       )}
+
       <div className={classes.Grow}></div>
       <Button className={classes.Button} variant="contained" type="submit">Vote</Button>
     </form>

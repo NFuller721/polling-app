@@ -1,19 +1,20 @@
-import React, { useState } from 'react'
-import { makeStyles } from '@material-ui/core/styles'
-import {
-  Card, CardContent,
-  Typography,
-  useMediaQuery,
-  Button
-} from '@material-ui/core'
-
+// Components
 import ThemeProviderComponent from '../ThemeProviderComponent'
 import PollForm from './PollForm'
 import PollResults from './PollResults'
 
+// React
+import React, { useState } from 'react'
+// Material-ui
+import { makeStyles } from '@material-ui/core/styles'
+import { Card, CardContent, Typography, useMediaQuery } from '@material-ui/core'
+
+// Poll Card
 const PollCard = ({ pollId, pollInfo }) => {
+  // State
   const [voted, setVoted] = useState(null)
 
+  // Styles
   const useStyles = makeStyles({
     Card: {
       height: "450px",
@@ -26,22 +27,14 @@ const PollCard = ({ pollId, pollInfo }) => {
   })
   const classes = useStyles()
 
-  const onVote = () => {
-    setVoted(!voted)
-  }
-
-  const onLoad = async () => {
-    const body = JSON.stringify(
-      {
-        pollId
-      }
-    )
+  // componentDidMount
+  const componentDidMount = async () => {
     const response = await fetch("/Api/467586970086574653/read", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body
+      body: JSON.stringify({ pollId })
     })
     const data = await response.json()
 
@@ -50,15 +43,27 @@ const PollCard = ({ pollId, pollInfo }) => {
 
 
   return (
-    <ThemeProviderComponent onLoad={onLoad()}>
+    <ThemeProviderComponent onLoad={componentDidMount()}>
+
       <Card className={classes.Card}>
         <CardContent className={classes.CardContent}>
+
           <div clasName="PollTitle">
-            <Typography variant="h3">{pollInfo.title}</Typography>
+            <Typography
+              variant="h3">
+              {pollInfo.title}
+            </Typography>
           </div>
-          { !voted ? <PollForm pollId={pollId} pollInfo={pollInfo} onVote={onVote} /> : <PollResults />}
+
+          { !voted ? (
+            <PollForm pollId={pollId} pollInfo={pollInfo} onVote={() => setVoted(!voted)} />
+          ) : (
+            <PollResults />
+          )}
+
         </CardContent>
       </Card>
+
     </ThemeProviderComponent>
   )
 }

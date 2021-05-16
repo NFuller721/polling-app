@@ -1,8 +1,9 @@
+// React
 import React from 'react'
-import {
-  Typography
-} from '@material-ui/core'
+// Material-ui
+import { Typography } from '@material-ui/core'
 
+// Poll Result
 const PollResult = ({ value, max, label }) => {
   return (
     <div className="PollResult">
