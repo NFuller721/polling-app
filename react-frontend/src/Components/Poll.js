@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { withRouter } from 'react-router-dom'
+import { Checkbox } from '@material-ui/core'
 
 class Poll extends React.Component {
 
@@ -26,7 +27,13 @@ class Poll extends React.Component {
   }
   render() {
     return (
-      <p>{ JSON.stringify(this.state.pollInfo) }</p>
+      <form>
+        { !this.state.pollInfo.optionACount.length ? <div></div> : <Checkbox checked={false} />}
+        { !this.state.pollInfo.optionBCount.length ? <div></div> : <Checkbox checked={false} />}
+        { !this.state.pollInfo.optionCCount.length ? <div></div> : <Checkbox checked={false} />}
+        { !this.state.pollInfo.optionDCount.length ? <div></div> : <Checkbox checked={false} />}
+        { !this.state.pollInfo.optionECount.length ? <div></div> : <Checkbox checked={false} />}
+      </form>
     )
   }
 }
