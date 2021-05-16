@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { withRouter } from 'react-router-dom'
 import PollCard from './PollCard'
-
+import './css/Poll.css'
 class PollPage extends React.Component {
 
   constructor(props) {
