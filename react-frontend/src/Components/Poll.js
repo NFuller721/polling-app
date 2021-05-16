@@ -25,7 +25,7 @@ class Poll extends React.Component {
 
     this.setState({pollInfo: data.Response})
 
-    console.log(this.state.pollInfo.optionACount ? "Does exist" : "Doesn't exist")
+    console.log(this.state.pollInfo.optionACount == 0 ? "Does exist" : "Doesn't exist")
     console.log(this.state.pollInfo.optionACount)
     console.log(this.state.pollInfo.optionECount ? "Does exist" : "Doesn't exist")
     console.log(this.state.pollInfo.optionECount)
