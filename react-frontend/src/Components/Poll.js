@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { withRouter } from 'react-router-dom'
 
 class Poll extends React.Component {
@@ -9,9 +9,9 @@ class Poll extends React.Component {
     const response = await fetch(url, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json;charset=utf-8'
+        'Content-Type': 'application/json'
       },
-      body: PollInfo
+      body: JSON.stringify(PollInfo)
     })
     const data = await response.json()
 
