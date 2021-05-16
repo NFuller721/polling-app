@@ -10,9 +10,9 @@ import ThemeProviderComponent from '../ThemeProviderComponent'
 import PollForm from './PollForm'
 import PollResults from './PollResults'
 
-const PollCard = async ({ pollId, pollInfo }) => {
+const PollCard = ({ pollId, pollInfo }) => {
 
-  console.log(await pollInfo.voted)
+  setVoted(pollInfo.voted)
 
   const useStyles = makeStyles({
     Card: {
