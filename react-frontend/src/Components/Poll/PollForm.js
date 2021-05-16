@@ -73,7 +73,14 @@ const PollForm = ({ pollId, pollInfo }) => {
       body
     })
     const data = await response.json()
-    console.log(data)
+
+    setPollOptions({
+      optionA: false,
+      optionB: false,
+      optionC: false,
+      optionD: false,
+      optionE: false
+    })
   }
 
   return (
