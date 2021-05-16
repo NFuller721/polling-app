@@ -3,15 +3,15 @@
 }
 
 /* background: */
-progress::-webkit-progress-bar {
+/* progress::-webkit-progress-bar {
   background-color: transparent; width: 100%;
 }
 progress {
   background-color: transparent;
-}
+} */
 
 /* value: */
-progress::-webkit-progress-value {
+/* progress::-webkit-progress-value {
   background-color: white !important;
   width: 100%;
   height: 40px;
@@ -25,7 +25,7 @@ progress {
   color: white;
   width: 100%;
   height: 40px;
-}
+} */
 
 .PollResult {
   display: grid;
@@ -40,4 +40,10 @@ progress {
   background-color: #42424242;
   font-family: arial;
   padding: 10px;
+}
+
+.Progress {
+  color: white;
+  width: 100%;
+  height: 40px;
 }

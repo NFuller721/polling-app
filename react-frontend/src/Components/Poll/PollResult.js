@@ -7,7 +7,7 @@ const PollResult = ({ value, max, label }) => {
   return (
     <div className="PollResult">
       <Typography>{label}</Typography>
-      <progress value={value} max={max}></progress>
+      <div className="Progress" style={{width: value / max}}></div>
     </div>
   )
 }
