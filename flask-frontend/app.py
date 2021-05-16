@@ -21,24 +21,34 @@ def Start():
 def Vote(pollId, option):
     Database, Cursor = Start()
     if option == "A":
-        Count = Read(Database=Database, Cursor=Cursor, table="Polls", id=pollId, columns=["optionACount"])
-        print(Count)
+        Count = Read(Database=Database, Cursor=Cursor, table="Polls", id=pollId, columns=["optionACount"])[0][0] + 1
+
+        Update(Database=Database, Cursor=Cursor, table="Polls", id=pollId, dict={"optionACount": Count})
+
         return {"Response": "Voted"}
     elif option == "B":
-        Count = Read(Database=Database, Cursor=Cursor, table="Polls", id=pollId, columns="optionBCount")[0][0]
-        print(Count)
+        Count = Read(Database=Database, Cursor=Cursor, table="Polls", id=pollId, columns=["optionBCount"])[0][0] + 1
+
+        Update(Database=Database, Cursor=Cursor, table="Polls", id=pollId, dict={"optionBCount": Count})
+
         return {"Response": "Voted"}
     elif option == "C":
-        Count = Read(Database=Database, Cursor=Cursor, table="Polls", id=pollId, columns="optionCCount")[0][0]
-        print(Count)
+        Count = Read(Database=Database, Cursor=Cursor, table="Polls", id=pollId, columns=["optionCCount"])[0][0] + 1
+
+        Update(Database=Database, Cursor=Cursor, table="Polls", id=pollId, dict={"optionCCount": Count})
+
         return {"Response": "Voted"}
     elif option == "D":
-        Count = Read(Database=Database, Cursor=Cursor, table="Polls", id=pollId, columns="optionDCount")[0][0]
-        print(Count)
+        Count = Read(Database=Database, Cursor=Cursor, table="Polls", id=pollId, columns=["optionDCount"])[0][0] + 1
+
+        Update(Database=Database, Cursor=Cursor, table="Polls", id=pollId, dict={"optionDCount": Count})
+
         return {"Response": "Voted"}
     elif option == "E":
-        Count = Read(Database=Database, Cursor=Cursor, table="Polls", id=pollId, columns="optionECount")[0][0]
-        print(Count)
+        Count = Read(Database=Database, Cursor=Cursor, table="Polls", id=pollId, columns=["optionECount"])[0][0] + 1
+
+        Update(Database=Database, Cursor=Cursor, table="Polls", id=pollId, dict={"optionECount": Count})
+
         return {"Response": "Voted"}
     else:
         return {"Error": "invalid option"}
