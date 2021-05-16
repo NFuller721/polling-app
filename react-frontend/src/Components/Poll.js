@@ -12,18 +12,19 @@ import {
 import ThemeProviderComponent from './ThemeProviderComponent'
 
 class Poll extends React.Component {
-  state = {
-    pollInfo: {},
-    pollOptions: {
-      optionA: false,
-      optionB: false,
-      optionC: false,
-      optionD: false,
-      optionE: false
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      pollInfo: {},
+      pollOptions: {
+        optionA: false,
+        optionB: false,
+        optionC: false,
+        optionD: false,
+        optionE: false
+      }
     }
-  }
-  
-  constructor() {
     this.useStyles = makeStyles({
       Card: {
         height: "450px",
