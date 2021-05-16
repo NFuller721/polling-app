@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from MySQLPackage import *
 
 App = Flask(__name__)
@@ -23,23 +23,36 @@ def Start():
 def index(path):
     return render_template('index.html')
 
-@App.route('/Api/<key>/<pollId>')
+@App.route('/Api/<key>/<option>', methods=["GET", "POST"])
 def Api(key, pollId):
-    if key == "API_KEY":
-        Database, Cursor = Start()
-        Poll = Read(Database=Database, Cursor=Cursor, table="Polls", id=int(pollId))[0]
+    if key == "467586970086574653":
+        if option == "read":
+            if request.method == "POST":
+                pollId = request.form["pollId"]
 
-        Response = {
-            "id": Poll[0],
-            "title": Poll[1],
-            "optionACount": Poll[2],
-            "optionBCount": Poll[3],
-            "optionCCount": Poll[4],
-            "optionDCount": Poll[5],
-            "optionECount": Poll[6],
-        }
+                Database, Cursor = Start()
+                Poll = Read(Database=Database, Cursor=Cursor, table="Polls", id=int(pollId))[0]
 
-        return {"Response": Response}
+                Response = {
+                "id": Poll[0],
+                "title": Poll[1],
+                "optionACount": Poll[2],
+                "optionBCount": Poll[3],
+                "optionCCount": Poll[4],
+                "optionDCount": Poll[5],
+                "optionECount": Poll[6],
+                }
+
+                return {"Response": Response}
+            return {"Error": "This action needs a POST request to work"}
+        elif option == "create":
+            if request.method == "POST":
+                return {"Response": "200 - ok"}
+            return {"Error": "This action needs a POST request to work"}
+        elif option == "vote":
+            if request.method == "POST":
+                return {"Response": "200 - ok"}
+            return {"Error": "This action needs a POST request to work"}
     return {"Error": "Wrong key!"}
 
 if __name__ == '__main__':

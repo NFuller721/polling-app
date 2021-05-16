@@ -4,9 +4,16 @@ import { withRouter } from 'react-router-dom'
 class Poll extends React.Component {
 
   async componentDidMount() {
-    const url = `/Api/API_KEY/${this.props.match.params.pollId}`
-    const response = await fetch(url)
-    const data = await response.json()
+    const PollInfo = {"pollId": this.props.match.params.pollId}
+    const url = `/Api/467586970086574653/read`
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8'
+      },
+      body: JSON.stringify()
+    })
+    const data = await response.json(PollInfo)
 
     console.log(data)
   }
