@@ -12,11 +12,11 @@ const CreatePollForm = () => {
   // State
   const defaultOptions = {
     Title: "",
-    OptionA: null,
-    OptionB: null,
-    OptionC: null,
-    OptionD: null,
-    OptionE: null
+    OptionA: "",
+    OptionB: "",
+    OptionC: "",
+    OptionD: "",
+    OptionE: ""
   }
   const [options, setOptions] = useState(defaultOptions)
 
@@ -55,8 +55,19 @@ const CreatePollForm = () => {
   const submitHandler = async (event) => {
     event.preventDefault()
 
-    console.log(options)
+    const Body = {}
 
+    for (const Value in options) {
+      if (Value == "Title") {Body.Title = options[Value]}
+      else if (Value == "OptionA") {Body.OptionA = options[Value].length ? options[Value] : null}
+      else if (Value == "OptionB") {Body.OptionB = options[Value].length ? options[Value] : null}
+      else if (Value == "OptionC") {Body.OptionC = options[Value].length ? options[Value] : null}
+      else if (Value == "OptionD") {Body.OptionD = options[Value].length ? options[Value] : null}
+      else if (Value == "OptionE") {Body.OptionE = options[Value].length ? options[Value] : null}
+      else {}
+    }
+
+    console.log(Body)
     setOptions(defaultOptions)
   }
 
@@ -68,32 +79,38 @@ const CreatePollForm = () => {
             <TextField
               name="Title"
               placeholder="Title"
+              label="Leave blank to exclude"
               value={options.Title}
               onChange={changeHandler}/>
 
             <TextField
               name="OptionA"
               placeholder="Option 1"
+              label="Leave blank to exclude"
               value={options.OptionA}
               onChange={changeHandler}/>
             <TextField
               name="OptionB"
               placeholder="Option 2"
+              label="Leave blank to exclude"
               value={options.OptionB}
               onChange={changeHandler}/>
             <TextField
               name="OptionC"
               placeholder="Option 3"
+              label="Leave blank to exclude"
               value={options.OptionC}
               onChange={changeHandler}/>
             <TextField
               name="OptionD"
               placeholder="Option 4"
+              label="Leave blank to exclude"
               value={options.OptionD}
               onChange={changeHandler}/>
             <TextField
               name="OptionE"
               placeholder="Option 5"
+              label="Leave blank to exclude"
               value={options.OptionE}
               onChange={changeHandler}/>
 
