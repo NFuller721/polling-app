@@ -12,11 +12,11 @@ const CreatePollForm = () => {
   // State
   const defaultOptions = {
     Title: "",
-    OptionA: "",
-    OptionB: "",
-    OptionC: "",
-    OptionD: "",
-    OptionE: ""
+    OptionA: null,
+    OptionB: null,
+    OptionC: null,
+    OptionD: null,
+    OptionE: null
   }
   const [options, setOptions] = useState(defaultOptions)
 
@@ -47,7 +47,7 @@ const CreatePollForm = () => {
   // Change Handler
   const changeHandler = (event) => {
     setOptions(prevOptions => {
-      return { ...prevOptions, [event.target.name]: [event.target.value] }
+      return { ...prevOptions, [event.target.name]: event.target.value }
     })
   }
 
