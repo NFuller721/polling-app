@@ -128,6 +128,7 @@ def Api(key, option):
             return {"Error": "This action needs a POST request to work"}
 
         elif option == "deleteAll":
+            Database, Cursor = Start()
             Delete(Database=Database, Cursor=Cursor, table="Polls")
     return {"Error": "Wrong key!"}
 
