@@ -52,6 +52,9 @@ const CreatePollForm = () => {
   // Submit Handler
   const submitHandler = (event) => {
     event.preventDefault()
+
+    console.log(options)
+
     setOptions(defaultOptions)
   }
 
