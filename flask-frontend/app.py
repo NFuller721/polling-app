@@ -52,6 +52,9 @@ def Vote(pollId, option):
         return {"Response": "Voted"}
     else:
         return {"Error": "invalid option"}
+def setVoted(pollId):
+    if "voted" not in session[pollId]:
+        session[pollId]["voted"] = False
 
 @App.route('/', defaults={'path': ''})
 @App.route('/<path:path>')
@@ -60,12 +63,11 @@ def index(path):
 
 @App.route('/Api/<key>/<option>', methods=["GET", "POST"])
 def Api(key, option):
-    if "voted" not in session:
-        session["voted"] = False
     if key == "467586970086574653":
         if option == "read":
             if request.method == "POST":
                 pollId = int(request.json["pollId"])
+                setVoted(pollId)
 
                 Database, Cursor = Start()
                 Poll = Read(Database=Database, Cursor=Cursor, table="Polls", id=pollId)[0]
@@ -83,7 +85,7 @@ def Api(key, option):
                     "optionDTitle": Poll[9],
                     "optionECount": Poll[10],
                     "optionETitle": Poll[11],
-                    "voted": session["voted"]
+                    "voted": session[pollId]["voted"]
                 }
 
                 return {"Response": Response}
@@ -97,7 +99,7 @@ def Api(key, option):
                 pollId = int(request.json["pollId"])
                 option = request.json["option"]
 
-                session["voted"] = True
+                session[pollId]["voted"] = True
 
                 return Vote(pollId, option)
             return {"Error": "This action needs a POST request to work"}
