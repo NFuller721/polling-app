@@ -39,6 +39,8 @@ const PollCard = ({ pollId, pollInfo }) => {
     const data = await response.json()
 
     setVoted(data.Response.voted)
+    console.log(voted)
+    console.log(data.Response.voted)
   }
 
 

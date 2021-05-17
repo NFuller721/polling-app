@@ -65,8 +65,6 @@ class PollResults extends React.Component {
     const data = await response.json()
 
     this.setAll(data.Response)
-
-    console.log(this.state.optionETitle)
   }
 
   // Return Results
