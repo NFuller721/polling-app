@@ -7,7 +7,7 @@ import { Typography } from '@material-ui/core'
 const PollResult = ({ value, max, label }) => {
   return (
     <div className="PollResult">
-      <Typography>{label}</Typography>
+      <Typography>{label} - {(value / max) * 100}%</Typography>
       <div className="Progress" style={{width: `${(value / max) * 100}%`}}></div>
     </div>
   )
