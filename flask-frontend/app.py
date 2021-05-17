@@ -104,10 +104,10 @@ def Api(key, option):
                     "optionBTitle": request.json["optionBTitle"] if request.json["optionBTitle"] != None else "null",
                     "optionCCount": 0 if request.json["optionCTitle"] != None else "null",
                     "optionCTitle": request.json["optionCTitle"] if request.json["optionCTitle"] != None else "null",
-                    "optionDCount": 0 if request.json["optionDTitle"] != None else "null",
-                    "optionDTitle": request.json["optionDTitle"] if request.json["optionDTitle"] != None else "null",
-                    "optionECount": 0 if request.json["optionETitle"] != None else "null",
-                    "optionETitle": request.json["optionETitle"] if request.json["optionETitle"] != None else "null",
+                    "optionDCount": 0 if request.json["optionDTitle"] != None else None,
+                    "optionDTitle": request.json["optionDTitle"] if request.json["optionDTitle"] != None else None,
+                    "optionECount": 0 if request.json["optionETitle"] != None else "NULL",
+                    "optionETitle": request.json["optionETitle"] if request.json["optionETitle"] != None else "NULL",
                 })
 
                 print(0 if "optionETitle" in request.json else None)
