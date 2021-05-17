@@ -95,7 +95,7 @@ def Api(key, option):
         elif option == "create":
             if request.method == "POST":
 
-                Create(Database=Database, Cursor=Cursor, table="Polls" dict={
+                Create(Database=Database, Cursor=Cursor, table="Polls", dict={
                     "title": request.json["title"],
                     "optionACount": 0 if "optionATitle" in request.json else None,
                     "optionATitle": request.json["optionATitle"],
