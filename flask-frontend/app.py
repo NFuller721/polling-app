@@ -126,7 +126,7 @@ def Api(key, option):
 
                 return Vote(pollId, option)
             return {"Error": "This action needs a POST request to work"}
-        return {"Error": "No optio with that name"}
+        return {"Error": "No option with that name"}
     return {"Error": "Wrong key!"}
 
 if __name__ == '__main__':
