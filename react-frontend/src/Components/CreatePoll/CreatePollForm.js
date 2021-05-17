@@ -20,6 +20,9 @@ const CreatePollForm = () => {
     Form: {
       display: "flex",
       flexDirection: "column"
+    },
+    Grow: {
+      flexGrow: 1
     }
   })
   const classes = useStyles()
@@ -36,6 +39,8 @@ const CreatePollForm = () => {
             <TextField label="Leave blank to not include" placeholder="Option 3"/>
             <TextField label="Leave blank to not include" placeholder="Option 4"/>
             <TextField label="Leave blank to not include" placeholder="Option 5"/>
+
+            <div className={classes.Grow}></div>
 
             <Button variant="contained">Create Poll</Button>
           </form>
