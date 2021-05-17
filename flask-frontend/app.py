@@ -98,16 +98,16 @@ def Api(key, option):
                 Database, Cursor = Start()
                 Create(Database=Database, Cursor=Cursor, table="Polls", dict={
                     "title": request.json["title"],
-                    "optionACount": 0 if "optionATitle" in request.json else None,
-                    "optionATitle": request.json["optionATitle"],
-                    "optionBCount": 0 if "optionBTitle" in request.json else None,
-                    "optionBTitle": request.json["optionBTitle"],
-                    "optionCCount": 0 if "optionCTitle" in request.json else None,
-                    "optionCTitle": request.json["optionCTitle"],
-                    "optionDCount": 0 if "optionDTitle" in request.json else None,
-                    "optionDTitle": request.json["optionDTitle"],
-                    "optionECount": 0 if "optionETitle" in request.json else None,
-                    "optionETitle": request.json["optionETitle"],
+                    "optionACount": 0 if "optionATitle" in request.json else "NULL",
+                    "optionATitle": request.json["optionATitle"] if "optionATitle" in request.json else "NULL",
+                    "optionBCount": 0 if "optionBTitle" in request.json else "NULL",
+                    "optionBTitle": request.json["optionBTitle"] if "optionBTitle" in request.json else "NULL",
+                    "optionCCount": 0 if "optionCTitle" in request.json else "NULL",
+                    "optionCTitle": request.json["optionCTitle"] if "optionCTitle" in request.json else "NULL",
+                    "optionDCount": 0 if "optionDTitle" in request.json else "NULL",
+                    "optionDTitle": request.json["optionDTitle"] if "optionDTitle" in request.json else "NULL",
+                    "optionECount": 0 if "optionETitle" in request.json else "NULL",
+                    "optionETitle": request.json["optionETitle"] if "optionETitle" in request.json else "NULL",
                 })
 
                 # THIS IS NOT A GOOD WAY TO DO THIS I KNOW
