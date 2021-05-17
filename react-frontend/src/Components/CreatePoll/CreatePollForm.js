@@ -19,10 +19,14 @@ const CreatePollForm = () => {
     },
     Form: {
       display: "flex",
-      flexDirection: "column"
+      flexDirection: "column",
+      height: "calc(100% + 24px)"
     },
     Grow: {
       flexGrow: 1
+    },
+    Button: {
+      justifySelf: "flex-end"
     }
   })
   const classes = useStyles()
@@ -42,7 +46,7 @@ const CreatePollForm = () => {
 
             <div className={classes.Grow}></div>
 
-            <Button variant="contained">Create Poll</Button>
+            <Button variant="contained" className={classes.Button}>Create Poll</Button>
           </form>
         </CardContent>
       </Card>
