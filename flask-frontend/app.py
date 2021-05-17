@@ -110,6 +110,8 @@ def Api(key, option):
                     "optionETitle": request.json["optionETitle"] if "optionETitle" in request.json else "NULL",
                 })
 
+                print(0 if "optionETitle" in request.json else "NULL")
+
                 # THIS IS NOT A GOOD WAY TO DO THIS I KNOW
                 pollId = Read(Database=Database, Cursor=Cursor, table="Polls")[-1][0]
 
