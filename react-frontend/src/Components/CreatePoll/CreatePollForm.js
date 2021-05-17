@@ -10,7 +10,7 @@ import { makeStyles } from '@material-ui/core/styles'
 // CreatePollForm
 const CreatePollForm = () => {
   // State
-  const [options, setOptions] = useState({ OptionA: "", OptionB: "", OptionC: "", OptionD: "", OptionE: ""})
+  const [options, setOptions] = useState({ Title: "", OptionA: "", OptionB: "", OptionC: "", OptionD: "", OptionE: ""})
 
   // Styles
   const useStyles = makeStyles({
@@ -41,12 +41,23 @@ const CreatePollForm = () => {
     setOptions({[event.target.name]: [event.target.value]})
   }
 
+  // Submit Handler
+  const submitHandler = (event) => {
+    event.preventDefault()
+    console.log(options)
+  }
+
   return (
     <ThemeProviderComponent>
       <Card className={classes.Card}>
         <CardContent className={classes.CardContent}>
-          <form className={classes.Form}>
-            <TextField label="Poll title" />
+          <form onSubmit={submitHandler} className={classes.Form}>
+            <TextField
+              name="Title"
+              label="Poll title"
+              placeholder="Title"
+              value={options.Title}
+              onChange={changeHandler}/>
 
             <TextField
               name="OptionA"
@@ -81,7 +92,7 @@ const CreatePollForm = () => {
 
             <div className={classes.Grow}></div>
 
-            <Button variant="contained" className={classes.Button}>Create Poll</Button>
+            <Button type="submit" variant="contained" className={classes.Button}>Create Poll</Button>
           </form>
         </CardContent>
       </Card>
