@@ -86,31 +86,31 @@ const PollForm = ({ pollId, pollInfo, onVote }) => {
       onSubmit={submitHandler}
       className={"PollForm " + classes.Form}>
 
-      { pollInfo.optionACount == null || pollInfo.optionACount == "None" ? <div></div> : (
+      { pollInfo.optionACount == null || pollInfo.optionATitle == "None" ? <div></div> : (
         <FormControlLabel
           control={<Checkbox name="optionA" onChange={checkHandler} checked={pollOptions.optionA} />}
           label={pollInfo.optionATitle}
           />
       )}
-      { pollInfo.optionBCount == null || pollInfo.optionBCount == "None" ? <div></div> : (
+      { pollInfo.optionBCount == null || pollInfo.optionBTitle == "None" ? <div></div> : (
         <FormControlLabel
           control={<Checkbox name="optionB" onChange={checkHandler} checked={pollOptions.optionB} />}
           label={pollInfo.optionBTitle}
           />
       )}
-      { pollInfo.optionCCount == null || pollInfo.optionCCount == "None" ? <div></div> : (
+      { pollInfo.optionCCount == null || pollInfo.optionCTitle == "None" ? <div></div> : (
         <FormControlLabel
           control={<Checkbox name="optionC" onChange={checkHandler} checked={pollOptions.optionC} />}
           label={pollInfo.optionCTitle}
           />
       )}
-      { pollInfo.optionDCount == null || pollInfo.optionDCount == "None" ? <div></div> : (
+      { pollInfo.optionDCount == null || pollInfo.optionDTitle == "None" ? <div></div> : (
         <FormControlLabel
           control={<Checkbox name="optionD" onChange={checkHandler} checked={pollOptions.optionD} />}
           label={pollInfo.optionDTitle}
           />
       )}
-      { pollInfo.optionECount == null || pollInfo.optionECount == "None" ? <div></div> : (
+      { pollInfo.optionECount == null || pollInfo.optionETitle == "None" ? <div></div> : (
         <FormControlLabel
           control={<Checkbox name="optionE" onChange={checkHandler} checked={pollOptions.optionE} />}
           label={pollInfo.optionETitle}

@@ -98,16 +98,16 @@ def Api(key, option):
                 Database, Cursor = Start()
                 Create(Database=Database, Cursor=Cursor, table="Polls", dict={
                     "title": request.json["title"],
-                    "optionACount": 0 if request.json["optionATitle"] != None else "null",
-                    "optionATitle": request.json["optionATitle"] if request.json["optionATitle"] != None else "null",
-                    "optionBCount": 0 if request.json["optionBTitle"] != None else "null",
-                    "optionBTitle": request.json["optionBTitle"] if request.json["optionBTitle"] != None else "null",
-                    "optionCCount": 0 if request.json["optionCTitle"] != None else "null",
-                    "optionCTitle": request.json["optionCTitle"] if request.json["optionCTitle"] != None else "null",
+                    "optionACount": 0 if request.json["optionATitle"] != None else None,
+                    "optionATitle": request.json["optionATitle"] if request.json["optionATitle"] != None else None,
+                    "optionBCount": 0 if request.json["optionBTitle"] != None else None,
+                    "optionBTitle": request.json["optionBTitle"] if request.json["optionBTitle"] != None else None,
+                    "optionCCount": 0 if request.json["optionCTitle"] != None else None,
+                    "optionCTitle": request.json["optionCTitle"] if request.json["optionCTitle"] != None else None,
                     "optionDCount": 0 if request.json["optionDTitle"] != None else None,
                     "optionDTitle": request.json["optionDTitle"] if request.json["optionDTitle"] != None else None,
-                    "optionECount": 0 if request.json["optionETitle"] != None else "NULL",
-                    "optionETitle": request.json["optionETitle"] if request.json["optionETitle"] != None else "NULL",
+                    "optionECount": 0 if request.json["optionETitle"] != None else None,
+                    "optionETitle": request.json["optionETitle"] if request.json["optionETitle"] != None else None,
                 })
 
                 print(0 if "optionETitle" in request.json else None)
