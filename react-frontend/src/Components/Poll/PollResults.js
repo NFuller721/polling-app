@@ -31,11 +31,11 @@ class PollResults extends React.Component {
   setAll(Response) {
     // Count all votes
     let All = 0
-    All += Response.optionACount != null || Response.optionATitle == "None"  ? Response.optionACount : 0
-    All += Response.optionBCount != null || Response.optionBTitle == "None"  ? Response.optionBCount : 0
-    All += Response.optionCCount != null || Response.optionCTitle == "None"  ? Response.optionCCount : 0
-    All += Response.optionDCount != null || Response.optionDTitle == "None"  ? Response.optionDCount : 0
-    All += Response.optionECount != null || Response.optionETitle == "None"  ? Response.optionECount : 0
+    All += Response.optionACount != null || Response.optionATitle != "None"  ? Response.optionACount : 0
+    All += Response.optionBCount != null || Response.optionBTitle != "None"  ? Response.optionBCount : 0
+    All += Response.optionCCount != null || Response.optionCTitle != "None"  ? Response.optionCCount : 0
+    All += Response.optionDCount != null || Response.optionDTitle != "None"  ? Response.optionDCount : 0
+    All += Response.optionECount != null || Response.optionETitle != "None"  ? Response.optionECount : 0
 
     // Set state
     this.setState({
@@ -71,11 +71,11 @@ class PollResults extends React.Component {
   render() {
     return (
       <div className="PollResults">
-        { this.state.optionACount != null || this.state.optionATitle == "None" ? <PollResult value={this.state.optionACount} max={this.state.All} label={this.state.optionATitle}/> : <></>}
-        { this.state.optionBCount != null || this.state.optionBTitle == "None" ? <PollResult value={this.state.optionBCount} max={this.state.All} label={this.state.optionBTitle}/> : <></>}
-        { this.state.optionCCount != null || this.state.optionCTitle == "None" ? <PollResult value={this.state.optionCCount} max={this.state.All} label={this.state.optionCTitle}/> : <></>}
-        { this.state.optionDCount != null || this.state.optionDTitle == "None" ? <PollResult value={this.state.optionDCount} max={this.state.All} label={this.state.optionDTitle}/> : <></>}
-        { this.state.optionECount != null || this.state.optionETitle == "None" ? <PollResult value={this.state.optionECount} max={this.state.All} label={this.state.optionETitle}/> : <></>}
+        { this.state.optionACount != null || this.state.optionATitle != "None" ? <PollResult value={this.state.optionACount} max={this.state.All} label={this.state.optionATitle}/> : <></>}
+        { this.state.optionBCount != null || this.state.optionBTitle != "None" ? <PollResult value={this.state.optionBCount} max={this.state.All} label={this.state.optionBTitle}/> : <></>}
+        { this.state.optionCCount != null || this.state.optionCTitle != "None" ? <PollResult value={this.state.optionCCount} max={this.state.All} label={this.state.optionCTitle}/> : <></>}
+        { this.state.optionDCount != null || this.state.optionDTitle != "None" ? <PollResult value={this.state.optionDCount} max={this.state.All} label={this.state.optionDTitle}/> : <></>}
+        { this.state.optionECount != null || this.state.optionETitle != "None" ? <PollResult value={this.state.optionECount} max={this.state.All} label={this.state.optionETitle}/> : <></>}
       </div>
     )
   }
