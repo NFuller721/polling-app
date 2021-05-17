@@ -1,12 +1,17 @@
 // Components
 import ThemeProviderComponent from '../ThemeProviderComponent'
 
+// React
+import React, { useState } from 'react'
 // Material-ui
 import { Card, CardContent, Typography, Button, TextField } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 
 // CreatePollForm
 const CreatePollForm = () => {
+  // State
+  const [options, setOptions] = useState({ OptionA: "", OptionB: "", OptionC: "", OptionD: "", OptionE: ""})
+
   // Styles
   const useStyles = makeStyles({
     Card: {
@@ -31,6 +36,11 @@ const CreatePollForm = () => {
   })
   const classes = useStyles()
 
+  // Change Handler
+  const changeHandler = (event) => {
+    setOptions({[event.target.name]: [event.target.value]})
+  }
+
   return (
     <ThemeProviderComponent>
       <Card className={classes.Card}>
@@ -38,11 +48,36 @@ const CreatePollForm = () => {
           <form className={classes.Form}>
             <TextField label="Poll title" />
 
-            <TextField label="Leave blank to not include" placeholder="Option 1"/>
-            <TextField label="Leave blank to not include" placeholder="Option 2"/>
-            <TextField label="Leave blank to not include" placeholder="Option 3"/>
-            <TextField label="Leave blank to not include" placeholder="Option 4"/>
-            <TextField label="Leave blank to not include" placeholder="Option 5"/>
+            <TextField
+              name="OptionA"
+              label="Leave blank to not include"
+              placeholder="Option 1"
+              value={options.OptionA}
+              onChange={changeHandler}/>
+            <TextField
+              name="OptionB"
+              label="Leave blank to not include"
+              placeholder="Option 2"
+              value={options.OptionB}
+              onChange={changeHandler}/>
+            <TextField
+              name="OptionC"
+              label="Leave blank to not include"
+              placeholder="Option 3"
+              value={options.OptionC}
+              onChange={changeHandler}/>
+            <TextField
+              name="OptionD"
+              label="Leave blank to not include"
+              placeholder="Option 4"
+              value={options.OptionD}
+              onChange={changeHandler}/>
+            <TextField
+              name="OptionE"
+              label="Leave blank to not include"
+              placeholder="Option 5"
+              value={options.OptionE}
+              onChange={changeHandler}/>
 
             <div className={classes.Grow}></div>
 
