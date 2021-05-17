@@ -10,9 +10,7 @@ class CreatePollPage extends React.Component {
     super(props)
   }
 
-  async componentDidMount() {
-    console.log("Started...")
-  }
+  async componentDidMount() {}
 
   render() {
     return (
