@@ -44,7 +44,7 @@ const CreatePollForm = () => {
   // Submit Handler
   const submitHandler = (event) => {
     event.preventDefault()
-    console.log(options)
+    console.log(options.Title)
   }
 
   return (
@@ -54,38 +54,32 @@ const CreatePollForm = () => {
           <form onSubmit={submitHandler} className={classes.Form}>
             <TextField
               name="Title"
-              label="Poll title"
               placeholder="Title"
               value={options.Title}
               onChange={changeHandler}/>
 
             <TextField
               name="OptionA"
-              label="Leave blank to not include"
               placeholder="Option 1"
               value={options.OptionA}
               onChange={changeHandler}/>
             <TextField
               name="OptionB"
-              label="Leave blank to not include"
               placeholder="Option 2"
               value={options.OptionB}
               onChange={changeHandler}/>
             <TextField
               name="OptionC"
-              label="Leave blank to not include"
               placeholder="Option 3"
               value={options.OptionC}
               onChange={changeHandler}/>
             <TextField
               name="OptionD"
-              label="Leave blank to not include"
               placeholder="Option 4"
               value={options.OptionD}
               onChange={changeHandler}/>
             <TextField
               name="OptionE"
-              label="Leave blank to not include"
               placeholder="Option 5"
               value={options.OptionE}
               onChange={changeHandler}/>
