@@ -10,7 +10,15 @@ import { makeStyles } from '@material-ui/core/styles'
 // CreatePollForm
 const CreatePollForm = () => {
   // State
-  const [options, setOptions] = useState({ Title: "", OptionA: "", OptionB: "", OptionC: "", OptionD: "", OptionE: ""})
+  const defaultOptions = {
+    Title: "",
+    OptionA: "",
+    OptionB: "",
+    OptionC: "",
+    OptionD: "",
+    OptionE: ""
+  }
+  const [options, setOptions] = useState(defaultOptions)
 
   // Styles
   const useStyles = makeStyles({
@@ -44,7 +52,7 @@ const CreatePollForm = () => {
   // Submit Handler
   const submitHandler = (event) => {
     event.preventDefault()
-    console.log(options.Title)
+    setOptions(defaultOptions)
   }
 
   return (
