@@ -58,16 +58,26 @@ const CreatePollForm = () => {
     const Body = {}
 
     for (const Value in options) {
-      if (Value == "Title") {Body.Title = options[Value]}
-      else if (Value == "OptionA") {Body.OptionA = options[Value].length ? options[Value] : null}
-      else if (Value == "OptionB") {Body.OptionB = options[Value].length ? options[Value] : null}
-      else if (Value == "OptionC") {Body.OptionC = options[Value].length ? options[Value] : null}
-      else if (Value == "OptionD") {Body.OptionD = options[Value].length ? options[Value] : null}
-      else if (Value == "OptionE") {Body.OptionE = options[Value].length ? options[Value] : null}
+      if (Value == "Title") {Body.title = options[Value]}
+      else if (Value == "OptionA") {Body.optionATitle = options[Value].length ? options[Value] : null}
+      else if (Value == "OptionB") {Body.optionBTitle = options[Value].length ? options[Value] : null}
+      else if (Value == "OptionC") {Body.optionCTitle = options[Value].length ? options[Value] : null}
+      else if (Value == "OptionD") {Body.optionDTitle = options[Value].length ? options[Value] : null}
+      else if (Value == "OptionE") {Body.optionETitle = options[Value].length ? options[Value] : null}
       else {}
     }
 
-    console.log(Body)
+    const response = await fetch("/Api/467586970086574653/create", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(Body)
+    })
+    const data = await response.json()
+
+    window.replace(`/poll/${data.Response.pollId}`)
+
     setOptions(defaultOptions)
   }
 
@@ -79,7 +89,7 @@ const CreatePollForm = () => {
             <TextField
               name="Title"
               placeholder="Title"
-              label="Leave blank to exclude"
+              label="Poll title"
               value={options.Title}
               onChange={changeHandler}/>
 

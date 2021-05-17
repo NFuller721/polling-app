@@ -94,7 +94,25 @@ def Api(key, option):
             return {"Error": "This action needs a POST request to work"}
         elif option == "create":
             if request.method == "POST":
-                return {"Response": "200 - ok"}
+
+                Create(Database=Database, Cursor=Cursor, table="Polls" dict={
+                    "title": request.json["title"],
+                    "optionACount": 0 if "optionATitle" in request.json else None,
+                    "optionATitle": request.json["optionATitle"],
+                    "optionBCount": 0 if "optionBTitle" in request.json else None,
+                    "optionBTitle": request.json["optionBTitle"],
+                    "optionCCount": 0 if "optionCTitle" in request.json else None,
+                    "optionCTitle": request.json["optionCTitle"],
+                    "optionDCount": 0 if "optionDTitle" in request.json else None,
+                    "optionDTitle": request.json["optionDTitle"],
+                    "optionECount": 0 if "optionETitle" in request.json else None,
+                    "optionETitle": request.json["optionETitle"],
+                })
+
+                # THIS IS NOT A GOOD WAY TO DO THIS I KNOW
+                pollId = Read(Database=Database, Cursor=Cursor, table="Polls")[-1][0]
+
+                return {"Response": {"pollId": pollId}}
             return {"Error": "This action needs a POST request to work"}
         elif option == "vote":
             if request.method == "POST":
