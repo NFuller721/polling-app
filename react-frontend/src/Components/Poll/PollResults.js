@@ -71,11 +71,11 @@ class PollResults extends React.Component {
   render() {
     return (
       <div className="PollResults">
-        { this.state.optionACount != null ? <PollResult value={this.state.optionACount} max={this.state.All} label={this.state.optionATitle}/> : <></>}
-        { this.state.optionBCount != null ? <PollResult value={this.state.optionBCount} max={this.state.All} label={this.state.optionBTitle}/> : <></>}
-        { this.state.optionCCount != null ? <PollResult value={this.state.optionCCount} max={this.state.All} label={this.state.optionCTitle}/> : <></>}
-        { this.state.optionDCount != null ? <PollResult value={this.state.optionDCount} max={this.state.All} label={this.state.optionDTitle}/> : <></>}
-        { this.state.optionECount != null ? <PollResult value={this.state.optionECount} max={this.state.All} label={this.state.optionETitle}/> : <></>}
+        { this.state.optionACount != null || this.state.optionATitle == "None" ? <PollResult value={this.state.optionACount} max={this.state.All} label={this.state.optionATitle}/> : <></>}
+        { this.state.optionBCount != null || this.state.optionBTitle == "None" ? <PollResult value={this.state.optionBCount} max={this.state.All} label={this.state.optionBTitle}/> : <></>}
+        { this.state.optionCCount != null || this.state.optionCTitle == "None" ? <PollResult value={this.state.optionCCount} max={this.state.All} label={this.state.optionCTitle}/> : <></>}
+        { this.state.optionDCount != null || this.state.optionDTitle == "None" ? <PollResult value={this.state.optionDCount} max={this.state.All} label={this.state.optionDTitle}/> : <></>}
+        { this.state.optionECount != null || this.state.optionETitle == "None" ? <PollResult value={this.state.optionECount} max={this.state.All} label={this.state.optionETitle}/> : <></>}
       </div>
     )
   }
