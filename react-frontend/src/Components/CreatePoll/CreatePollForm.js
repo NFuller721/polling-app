@@ -76,7 +76,7 @@ const CreatePollForm = () => {
     })
     const data = await response.json()
 
-    window.replace(`/poll/${data.Response.pollId}`)
+    window.location.replace(`/poll/${data.Response.pollId}`)
 
     setOptions(defaultOptions)
   }
