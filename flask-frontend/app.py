@@ -54,8 +54,9 @@ def Vote(pollId, option):
         return {"Error": "invalid option"}
 def setVoted(pollId):
     if pollId not in session:
-        session[f"{pollId}"] = {}
-        session[f"{pollId}"]["voted"] = False
+        session[f"{pollId}"] = {
+            "voted": False
+        }
 
 @App.route('/', defaults={'path': ''})
 @App.route('/<path:path>')
@@ -100,7 +101,7 @@ def Api(key, option):
                 pollId = int(request.json["pollId"])
                 option = request.json["option"]
 
-                session[f"{pollId}"]["voted"] = True
+                session[f"{pollId}"] = {"voted": True}
 
                 return Vote(pollId, option)
             return {"Error": "This action needs a POST request to work"}
