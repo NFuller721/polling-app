@@ -46,11 +46,13 @@ const CreatePollForm = () => {
 
   // Change Handler
   const changeHandler = (event) => {
-    setOptions({[event.target.name]: [event.target.value]})
+    setOptions(prevOptions => {
+      return { ...prevOptions, [event.target.name]: [event.target.value] }
+    })
   }
 
   // Submit Handler
-  const submitHandler = (event) => {
+  const submitHandler = async (event) => {
     event.preventDefault()
 
     console.log(options)
