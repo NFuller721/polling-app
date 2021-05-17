@@ -86,7 +86,7 @@ def Api(key, option):
                     "optionDTitle": Poll[9],
                     "optionECount": Poll[10],
                     "optionETitle": Poll[11],
-                    "voted": session[pollId]["voted"]
+                    "voted": session[f"{pollId}"]["voted"]
                 }
 
                 return {"Response": Response}
@@ -100,7 +100,7 @@ def Api(key, option):
                 pollId = int(request.json["pollId"])
                 option = request.json["option"]
 
-                session[pollId]["voted"] = True
+                session[f"{pollId}"]["voted"] = True
 
                 return Vote(pollId, option)
             return {"Error": "This action needs a POST request to work"}
