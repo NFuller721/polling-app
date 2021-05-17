@@ -53,7 +53,7 @@ def Vote(pollId, option):
     else:
         return {"Error": "invalid option"}
 def setVoted(pollId):
-    if pollId not in session:
+    if f"{pollId}" not in session:
         session[f"{pollId}"] = {
             "voted": False
         }
