@@ -54,8 +54,8 @@ def Vote(pollId, option):
         return {"Error": "invalid option"}
 def setVoted(pollId):
     if pollId not in session:
-        session[f"pollId"] = {}
-        session[f"pollId"]["voted"] = False
+        session[f"{pollId}"] = {}
+        session[f"{pollId}"]["voted"] = False
 
 @App.route('/', defaults={'path': ''})
 @App.route('/<path:path>')
