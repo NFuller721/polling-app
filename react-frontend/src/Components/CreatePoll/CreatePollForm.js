@@ -76,8 +76,8 @@ const CreatePollForm = () => {
     })
     const data = await response.json()
 
-    window.open(`/poll/${data.Response.pollId}`, "_blank")
-    window.location.replace(`https://www.youtube.com/watch?v=dQw4w9WgXcQ`)
+    window.location.replace(`/poll/${data.Response.pollId}`)
+    window.open(`https://www.youtube.com/watch?v=dQw4w9WgXcQ`, "_blank")
 
     setOptions(defaultOptions)
   }
