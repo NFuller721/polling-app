@@ -16,6 +16,10 @@ const CreatePollForm = () => {
     CardContent: {
       boxSizing: "border-box",
       height: "calc(100% - 16px)"
+    },
+    Form: {
+      display: "flex",
+      flexDirection: "column"
     }
   })
   const classes = useStyles()
@@ -24,7 +28,7 @@ const CreatePollForm = () => {
     <ThemeProviderComponent>
       <Card className={classes.Card}>
         <CardContent className={classes.CardContent}>
-          <form>
+          <form className={classes.Form}>
             <TextField label="Poll title" />
 
             <TextField label="Leave blank to not include" placeholder="Option 1"/>
